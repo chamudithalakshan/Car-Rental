@@ -19,11 +19,55 @@
 
         /* Hide scrollbar for IE, Edge, and Firefox */
         body {
+
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+
             -ms-overflow-style: none;
             /* IE and Edge */
             scrollbar-width: none;
             /* Firefox */
         }
+
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+
+        #dashboard-section {
+    padding: 20px 0;
+    background-color: #f8f9fa;
+}
+
+#stats-row > .col {
+    margin-bottom: 20px;
+}
+
+#orderCount, #customerCount {
+    color: #007bff;
+    font-size: 48px;
+}
+
+#orderLabel, #customerLabel {
+    font-size: 24px;
+    color: #343a40;
+    margin-top: 10px;
+}
+
+#orders-col, #customers-col {
+    border: 1px solid #3e3f40;   /* A light border for each column */
+    border-radius: 5px;          /* Rounded borders */
+    padding: 10px 0;             /* Padding inside each column */
+    background-color: #ffffff;
+    width: 25%;
+}
+
+
+
+
     </style>
 
 
@@ -32,72 +76,183 @@
 <body>
     <nav class="navbar bg-body-tertiary bg-primary" data-bs-theme="dark">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">
-            <i class="bi bi-person fs-4"></i>
-            Bootstrap
-          </a>
+            <a class="navbar-brand" href="#">
+                <i class="bi bi-person fs-4"></i>
+                Admin
+            </a>
         </div>
-      </nav>
+    </nav>
 
-
-
-
-    <section>
-
+    <section id="dashboard-section">
         <div class="container text-center">
-            <div class="row row-cols-2">
-              <div class="col"><h2 id="orderCount">5</h2></div>
-              <div class="col"><h2 id="customerCount">10</h2></div>
-              <div class="col"><label for="orderCount"><h1>Orders</h1></label></div>
-              <div class="col"><label for="customerCount"><h1>Customers</h1></label></div>
+            <div class="row row-cols-2 justify-content-center" id="stats-row">
+                <div class="col col-md-3 me-4" id="orders-col">
+                    <h2 id="orderCount">5</h2>
+                    <label for="orderCount" id="orderLabel">
+                        <h1>Orders</h1>
+                    </label>
+                </div>
+                <div class="col col-md-3" id="customers-col">
+                    <h2 id="customerCount">10</h2>
+                    <label for="customerCount" id="customerLabel">
+                        <h1>Customers</h1>
+                    </label>
+                </div>
             </div>
-          </div>
-    
+        </div>
     </section>
-    
-    <main class="container mt-5">
-    
-        <section>
-            <table id="tblrentalDetails" class="table table-hover">
-                <thead>
-                    <tr>
-                        <th scope="col">Rental Id</th>
-                        <th scope="col">Rental Date</th>
-                        <th scope="col">customer name</th>
-                        <th scope="col">Assign Driver</th>
-                        <th scope="col">Payment</th>
-                        <th scope="col">Request Status</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>Otto</td>
-                        <td>10000</td>
-                        <td><input class="form-check-input form-check form-switch" type="checkbox" role="switch" id="switchAcceptRental1"></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>Thornton</td>
-                        <td>20000</td>
-                        <td><input class="form-check-input form-check form-switch" type="checkbox" role="switch" id="switchAcceptRental2"></td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>Larry the Bird</td>
-                        <td>Larry the Bird</td>
-                        <td>Larry the Bird</td>
-                        <td>30000</td>
-                        <td><input class="form-check-input form-check form-switch" type="checkbox" role="switch" id="switchAcceptRental3"></td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
-    
+
+
+
+    <!-- cars -->
+
+    <section id="selectCar" class="mb-3">
+        <div class="container-fluid text-center mt-3 col-12  mt-4">
+            <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5">
+                <div class="col ">
+                    <div class="card shadow" style="width: 18rem;">
+                        <img src="../assets/img/DashboardIMG/2019_BMW_M850i_xDrive_Automatic_4.4_Front.jpg"
+                            class="card-img-top" height="166px">
+                        <div class="card-body">
+                            <h5 class="card-title">BMW M8</h5>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">Luxury</li>
+                                <li class="list-group-item">Auto transmission</li>
+                                <li class="list-group-item">petrol</li>
+                            </ul>
+                            <a href="#" class="btn btn-primary">view more</a>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col">
+
+                    <div class="card" style="width: 18rem;">
+                        <img src="https://i0.wp.com/autodirect.lk/wp-content/uploads/2022/03/DSC_7255-scaled.jpg?resize=798%2C466&ssl=1"
+                            class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">BMW I8</h5>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">Luxury</li>
+                                <li class="list-group-item">Auto transmission</li>
+                                <li class="list-group-item">petrol</li>
+                            </ul>
+                            <a href="#" class="btn btn-primary">view more</a>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col">
+
+                    <div class="card" style="width: 18rem;">
+                        <img src="https://i0.wp.com/autodirect.lk/wp-content/uploads/2022/03/DSC_7255-scaled.jpg?resize=798%2C466&ssl=1"
+                            class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Benz cla 200</h5>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">Luxury</li>
+                                <li class="list-group-item">Auto transmission</li>
+                                <li class="list-group-item">petrol</li>
+                            </ul>
+                            <a href="#" class="btn btn-primary">view more</a>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col">
+
+                    <div class="card" style="width: 18rem;">
+                        <img src="https://i0.wp.com/autodirect.lk/wp-content/uploads/2022/03/DSC_7255-scaled.jpg?resize=798%2C466&ssl=1"
+                            class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">BMW I8</h5>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">Luxury</li>
+                                <li class="list-group-item">Auto transmission</li>
+                                <li class="list-group-item">petrol</li>
+                            </ul>
+                            <a href="#" class="btn btn-primary">view more</a>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col">
+
+                    <div class="card" style="width: 18rem;">
+                        <img src="https://i0.wp.com/autodirect.lk/wp-content/uploads/2022/03/DSC_7255-scaled.jpg?resize=798%2C466&ssl=1"
+                            class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">BMW I8</h5>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">Luxury</li>
+                                <li class="list-group-item">Auto transmission</li>
+                                <li class="list-group-item">petrol</li>
+                            </ul>
+                            <a href="#" class="btn btn-primary">view more</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+    </section>
+
+    <!-- cars end -->
+
+
+
+    <div class="main-content">
+        
+
+        <main class="container-fluid mt-5">
+
+            <section>
+                <table id="tblrentalDetails" class="table table-hover w-100" data-bs-theme="dark">
+                    <thead>
+                        <tr>
+                            <th scope="col">Rental Id</th>
+                            <th scope="col">Rental Date</th>
+                            <th scope="col">customer name</th>
+                            <th scope="col">Assign Driver</th>
+                            <th scope="col">Payment</th>
+                            <th scope="col">Request Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>Otto</td>
+                            <td>10000</td>
+                            <td><input class="form-check-input form-check form-switch" type="checkbox" role="switch"
+                                    id="switchAcceptRental1"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>Jacob</td>
+                            <td>Thornton</td>
+                            <td>Thornton</td>
+                            <td>20000</td>
+                            <td><input class="form-check-input form-check form-switch" type="checkbox" role="switch"
+                                    id="switchAcceptRental2"></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>Larry the Bird</td>
+                            <td>Larry the Bird</td>
+                            <td>Larry the Bird</td>
+                            <td>30000</td>
+                            <td><input class="form-check-input form-check form-switch" type="checkbox" role="switch"
+                                    id="switchAcceptRental3"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+    </div>
+
     </main>
 
 
