@@ -38,50 +38,64 @@
         }
 
         #dashboard-section {
-    padding: 20px 0;
-    background-color: #f8f9fa;
-}
+            padding: 20px 0;
+            background-color: #f8f9fa;
+        }
 
-#stats-row > .col {
-    margin-bottom: 20px;
-}
+        #stats-row>.col {
+            margin-bottom: 20px;
+        }
 
-#orderCount, #customerCount {
-    color: #007bff;
-    font-size: 48px;
-}
+        #orderCount,
+        #customerCount {
+            color: #007bff;
+            font-size: 48px;
+        }
 
-#orderLabel, #customerLabel {
-    font-size: 24px;
-    color: #343a40;
-    margin-top: 10px;
-}
+        #orderLabel,
+        #customerLabel {
+            font-size: 24px;
+            color: #343a40;
+            margin-top: 10px;
+        }
 
-#orders-col, #customers-col {
-    border: 1px solid #3e3f40;   /* A light border for each column */
-    border-radius: 5px;          /* Rounded borders */
-    padding: 10px 0;             /* Padding inside each column */
-    background-color: #ffffff;
-    width: 25%;
-}
-
-
-
-
+        #orders-col,
+        #customers-col {
+            border: 1px solid #3e3f40;
+            /* A light border for each column */
+            border-radius: 5px;
+            /* Rounded borders */
+            padding: 10px 0;
+            /* Padding inside each column */
+            background-color: #ffffff;
+            width: 25%;
+        }
     </style>
 
 
 </head>
 
 <body>
-    <nav class="navbar bg-body-tertiary bg-primary" data-bs-theme="dark">
+
+    <nav class="navbar navbar-expand-lg " style="background-color:rgba(0,0,0,0.1)">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">
-                <i class="bi bi-person fs-4"></i>
-                Admin
-            </a>
+            <a class="navbar-brand" href="#"><i class="bi bi-person fs-4"></i>Admin</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link active" aria-current="page" href="#">Car Managing</a>
+                    <a class="nav-link" href="#">Add Driver</a>
+                    <a class="nav-link" href="#">Customer Verify</a>
+                    <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+                </div>
+            </div>
         </div>
     </nav>
+
+
 
     <section id="dashboard-section">
         <div class="container text-center">
@@ -204,7 +218,7 @@
 
 
     <div class="main-content">
-        
+
 
         <main class="container-fluid mt-5">
 
