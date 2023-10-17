@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Admin dashboard</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
 
@@ -42,7 +42,7 @@
             background-color: #f8f9fa;
         }
 
-        #stats-row>.col {
+        #stats-row > .col {
             margin-bottom: 20px;
         }
 
@@ -77,209 +77,361 @@
 
 <body>
 
-    <nav class="navbar navbar-expand-lg " style="background-color:rgba(0,0,0,0.1)">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#"><i class="bi bi-person fs-4"></i>Admin</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+<nav class="navbar navbar-expand-lg " style="background-color:rgba(0,0,0,0.1)">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#"><i class="bi bi-person fs-4"></i>Admin</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
                 aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav">
-                    <a class="nav-link active" aria-current="page" href="#">Car Managing</a>
-                    <a class="nav-link" href="#">Add Driver</a>
-                    <a class="nav-link" href="#">Customer Verify</a>
-                    <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-                </div>
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-link active" aria-current="page" href="#">Car Managing</a>
+                <button type="button" class="btn  btn-transparent" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                        data-bs-whatever="@fat">Driver Managing
+                </button>
+                <button type="button" class="btn btn-transparent" data-bs-toggle="modal" data-bs-target="#customerVerify"
+                        data-bs-whatever="@fat">Customer verify
+                </button>
+                <a class="nav-link disabled" aria-disabled="true">Disabled</a>
             </div>
         </div>
-    </nav>
+    </div>
+</nav>
 
 
-
-    <section id="dashboard-section">
-        <div class="container text-center">
-            <div class="row row-cols-2 justify-content-center" id="stats-row">
-                <div class="col col-md-3 me-4" id="orders-col">
-                    <h2 id="orderCount">5</h2>
-                    <label for="orderCount" id="orderLabel">
-                        <h1>Orders</h1>
-                    </label>
-                </div>
-                <div class="col col-md-3" id="customers-col">
-                    <h2 id="customerCount">10</h2>
-                    <label for="customerCount" id="customerLabel">
-                        <h1>Customers</h1>
-                    </label>
-                </div>
+<section id="dashboard-section">
+    <div class="container text-center">
+        <div class="row row-cols-2 justify-content-center" id="stats-row">
+            <div class="col col-md-3 me-4" id="orders-col">
+                <h2 id="orderCount">5</h2>
+                <label for="orderCount" id="orderLabel">
+                    <h1>Orders</h1>
+                </label>
+            </div>
+            <div class="col col-md-3" id="customers-col">
+                <h2 id="customerCount">10</h2>
+                <label for="customerCount" id="customerLabel">
+                    <h1>Customers</h1>
+                </label>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
+<!--Customer verify-->
 
-
-    <!-- cars -->
-
-    <section id="selectCar" class="mb-3">
-        <div class="container-fluid text-center mt-3 col-12  mt-4">
-            <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5">
-                <div class="col ">
-                    <div class="card shadow" style="width: 18rem;">
-                        <img src="../assets/img/DashboardIMG/2019_BMW_M850i_xDrive_Automatic_4.4_Front.jpg"
-                            class="card-img-top" height="166px">
-                        <div class="card-body">
-                            <h5 class="card-title">BMW M8</h5>
+<div class="modal fade" id="customerVerify" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="lblCusVerify">Customer Verify</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <!--                        card-->
+                        <div class="card" style="width: 18rem;">
+                            <img src="..." class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">verify customer</h5>
+                            </div>
                             <ul class="list-group list-group-flush">
-                                <li class="list-group-item">Luxury</li>
-                                <li class="list-group-item">Auto transmission</li>
-                                <li class="list-group-item">petrol</li>
+                                <li class="list-group-item">NIC</li>
+                                <li class="list-group-item">Name</li>
+
                             </ul>
-                            <a href="#" class="btn btn-primary">view more</a>
+
+                            <div class="card-body">
+
+                                <button type="button" class="btn btn-primary bg">verify</button>
+
+                            </div>
                         </div>
                     </div>
+                    <!--                    end card-->
+                    <div class="mb-3">
+                        <!--                                table-->
 
-                </div>
-                <div class="col">
+                        <table class="table table-hover">
+                            <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">First</th>
+                                <th scope="col">Last</th>
+                                <th scope="col">Handle</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>@mdo</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>Jacob</td>
+                                <td>Thornton</td>
+                                <td>@fat</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">3</th>
+                                <td>Larry the Bird</td>
+                                <td>sana</td>
+                                <td>@twitter</td>
+                            </tr>
+                            </tbody>
+                        </table>
 
-                    <div class="card" style="width: 18rem;">
-                        <img src="https://i0.wp.com/autodirect.lk/wp-content/uploads/2022/03/DSC_7255-scaled.jpg?resize=798%2C466&ssl=1"
-                            class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">BMW I8</h5>
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">Luxury</li>
-                                <li class="list-group-item">Auto transmission</li>
-                                <li class="list-group-item">petrol</li>
-                            </ul>
-                            <a href="#" class="btn btn-primary">view more</a>
-                        </div>
+                        <!--                                table-->
                     </div>
-
-                </div>
-                <div class="col">
-
-                    <div class="card" style="width: 18rem;">
-                        <img src="https://i0.wp.com/autodirect.lk/wp-content/uploads/2022/03/DSC_7255-scaled.jpg?resize=798%2C466&ssl=1"
-                            class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Benz cla 200</h5>
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">Luxury</li>
-                                <li class="list-group-item">Auto transmission</li>
-                                <li class="list-group-item">petrol</li>
-                            </ul>
-                            <a href="#" class="btn btn-primary">view more</a>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="col">
-
-                    <div class="card" style="width: 18rem;">
-                        <img src="https://i0.wp.com/autodirect.lk/wp-content/uploads/2022/03/DSC_7255-scaled.jpg?resize=798%2C466&ssl=1"
-                            class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">BMW I8</h5>
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">Luxury</li>
-                                <li class="list-group-item">Auto transmission</li>
-                                <li class="list-group-item">petrol</li>
-                            </ul>
-                            <a href="#" class="btn btn-primary">view more</a>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="col">
-
-                    <div class="card" style="width: 18rem;">
-                        <img src="https://i0.wp.com/autodirect.lk/wp-content/uploads/2022/03/DSC_7255-scaled.jpg?resize=798%2C466&ssl=1"
-                            class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">BMW I8</h5>
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">Luxury</li>
-                                <li class="list-group-item">Auto transmission</li>
-                                <li class="list-group-item">petrol</li>
-                            </ul>
-                            <a href="#" class="btn btn-primary">view more</a>
-                        </div>
-                    </div>
-
-                </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
             </div>
         </div>
+    </div>
+</div>
+
+<!--Customer verify-->
 
 
-    </section>
+<!-- DriverManaging -->
 
-    <!-- cars end -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Driver Manage</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Driver Id</label>
+                        <input type="text" class="form-control" id="recipient-name">
+                    </div>
+                    <div class="mb-3">
+                        <label for="driverName" class="col-form-label">Driver name</label>
+                        <input class="form-control" id="driverName">
+                    </div>
+                    <div class="mb-3">
+                        <label for="driverTel" class="col-form-label">Driver tel</label>
+                        <input class="form-control" id="driverTel">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Add</button>
+                        <button type="button" class="btn btn-primary">Delete</button>
+                    </div>
+                </form>
 
-
-
-    <div class="main-content">
-
-
-        <main class="container-fluid mt-5">
-
-            <section>
-                <table id="tblrentalDetails" class="table table-hover w-100" data-bs-theme="dark">
-                    <thead>
+                <div>
+                    <table class="table">
+                        <thead>
                         <tr>
-                            <th scope="col">Rental Id</th>
-                            <th scope="col">Rental Date</th>
-                            <th scope="col">customer name</th>
-                            <th scope="col">Assign Driver</th>
-                            <th scope="col">Payment</th>
-                            <th scope="col">Request Status</th>
+                            <th scope="col">#</th>
+                            <th scope="col">First</th>
+                            <th scope="col">Last</th>
+                            <th scope="col">Handle</th>
                         </tr>
-                    </thead>
-                    <tbody>
+                        </thead>
+                        <tbody>
                         <tr>
                             <th scope="row">1</th>
                             <td>Mark</td>
                             <td>Otto</td>
-                            <td>Otto</td>
-                            <td>10000</td>
-                            <td><input class="form-check-input form-check form-switch" type="checkbox" role="switch"
-                                    id="switchAcceptRental1"></td>
+                            <td>@mdo</td>
                         </tr>
                         <tr>
                             <th scope="row">2</th>
                             <td>Jacob</td>
                             <td>Thornton</td>
-                            <td>Thornton</td>
-                            <td>20000</td>
-                            <td><input class="form-check-input form-check form-switch" type="checkbox" role="switch"
-                                    id="switchAcceptRental2"></td>
+                            <td>@fat</td>
                         </tr>
                         <tr>
                             <th scope="row">3</th>
                             <td>Larry the Bird</td>
-                            <td>Larry the Bird</td>
-                            <td>Larry the Bird</td>
-                            <td>30000</td>
-                            <td><input class="form-check-input form-check form-switch" type="checkbox" role="switch"
-                                    id="switchAcceptRental3"></td>
+                            <td>sana</td>
+                            <td>@twitter</td>
                         </tr>
-                    </tbody>
-                </table>
-            </section>
+                        </tbody>
+                    </table>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- DriverManaging -->
+<section></section>
+
+
+<!-- cars -->
+
+<section id="selectCar" class="mb-3">
+    <div class="container-fluid text-center mt-3 col-12  mt-4">
+        <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5">
+            <div class="col ">
+                <div class="card shadow" style="width: 18rem;">
+                    <img src="../assets/img/DashboardIMG/2019_BMW_M850i_xDrive_Automatic_4.4_Front.jpg"
+                         class="card-img-top" height="166px">
+                    <div class="card-body">
+                        <h5 class="card-title">BMW M8</h5>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Luxury</li>
+                            <li class="list-group-item">Auto transmission</li>
+                            <li class="list-group-item">petrol</li>
+                        </ul>
+                        <a href="#" class="btn btn-primary">view more</a>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col">
+
+                <div class="card" style="width: 18rem;">
+                    <img src="https://i0.wp.com/autodirect.lk/wp-content/uploads/2022/03/DSC_7255-scaled.jpg?resize=798%2C466&ssl=1"
+                         class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">BMW I8</h5>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Luxury</li>
+                            <li class="list-group-item">Auto transmission</li>
+                            <li class="list-group-item">petrol</li>
+                        </ul>
+                        <a href="#" class="btn btn-primary">view more</a>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col">
+
+                <div class="card" style="width: 18rem;">
+                    <img src="https://i0.wp.com/autodirect.lk/wp-content/uploads/2022/03/DSC_7255-scaled.jpg?resize=798%2C466&ssl=1"
+                         class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Benz cla 200</h5>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Luxury</li>
+                            <li class="list-group-item">Auto transmission</li>
+                            <li class="list-group-item">petrol</li>
+                        </ul>
+                        <a href="#" class="btn btn-primary">view more</a>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col">
+
+                <div class="card" style="width: 18rem;">
+                    <img src="https://i0.wp.com/autodirect.lk/wp-content/uploads/2022/03/DSC_7255-scaled.jpg?resize=798%2C466&ssl=1"
+                         class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">BMW I8</h5>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Luxury</li>
+                            <li class="list-group-item">Auto transmission</li>
+                            <li class="list-group-item">petrol</li>
+                        </ul>
+                        <a href="#" class="btn btn-primary">view more</a>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col">
+
+                <div class="card" style="width: 18rem;">
+                    <img src="https://i0.wp.com/autodirect.lk/wp-content/uploads/2022/03/DSC_7255-scaled.jpg?resize=798%2C466&ssl=1"
+                         class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">BMW I8</h5>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Luxury</li>
+                            <li class="list-group-item">Auto transmission</li>
+                            <li class="list-group-item">petrol</li>
+                        </ul>
+                        <a href="#" class="btn btn-primary">view more</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
     </div>
 
+
+</section>
+
+<!-- cars end -->
+
+
+<div class="main-content">
+
+
+    <main class="container-fluid mt-5">
+
+        <section>
+            <table id="tblrentalDetails" class="table table-hover w-100" data-bs-theme="dark">
+                <thead>
+                <tr>
+                    <th scope="col">Rental Id</th>
+                    <th scope="col">Rental Date</th>
+                    <th scope="col">customer name</th>
+                    <th scope="col">Assign Driver</th>
+                    <th scope="col">Payment</th>
+                    <th scope="col">Request Status</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>Otto</td>
+                    <td>10000</td>
+                    <td><input class="form-check-input form-check form-switch" type="checkbox" role="switch"
+                               id="switchAcceptRental1"></td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>Thornton</td>
+                    <td>20000</td>
+                    <td><input class="form-check-input form-check form-switch" type="checkbox" role="switch"
+                               id="switchAcceptRental2"></td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>Larry the Bird</td>
+                    <td>Larry the Bird</td>
+                    <td>Larry the Bird</td>
+                    <td>30000</td>
+                    <td><input class="form-check-input form-check form-switch" type="checkbox" role="switch"
+                               id="switchAcceptRental3"></td>
+                </tr>
+                </tbody>
+            </table>
+        </section>
     </main>
+</div>
 
 
-
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
         integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
         crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
         integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
         crossorigin="anonymous"></script>
-    <script>
-        const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
-        const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
+<script>
+    const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
+    const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
 
-    </script>
+</script>
 </body>
