@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--    <meta http-equiv="Content-Security-Policy" content="default-src *;">-->
     <title>Admin dashboard</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
@@ -86,14 +87,18 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-                <a class="nav-link active" aria-current="page" href="#">Car Managing</a>
+                <button id="carManaging" class="btn  btn-transparent">Car Managing</button>
                 <button type="button" class="btn  btn-transparent" data-bs-toggle="modal" data-bs-target="#exampleModal"
                         data-bs-whatever="@fat">Driver Managing
                 </button>
-                <button type="button" class="btn btn-transparent" data-bs-toggle="modal" data-bs-target="#customerVerify"
+                <button type="button" class="btn btn-transparent" data-bs-toggle="modal"
+                        data-bs-target="#customerVerify"
                         data-bs-whatever="@fat">Customer verify
                 </button>
-                <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+                <button type="button" class="btn btn-transparent" data-bs-toggle="modal"
+                        data-bs-target="#incomeReports"
+                        data-bs-whatever="@fat">Income Reports
+                </button>
             </div>
         </div>
     </div>
@@ -118,6 +123,216 @@
         </div>
     </div>
 </section>
+
+<!--income Reports-->
+
+<div class="modal fade" id="incomeReports" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="lblReports">Customer Verify</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <!--                    nav to reports-->
+
+                        <nav>
+                            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                                <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab"
+                                        data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home"
+                                        aria-selected="true">Daily Report
+                                </button>
+                                <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab"
+                                        data-bs-target="#nav-profile" type="button" role="tab"
+                                        aria-controls="nav-profile" aria-selected="false">Weekly Report
+                                </button>
+                                <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab"
+                                        data-bs-target="#nav-contact" type="button" role="tab"
+                                        aria-controls="nav-contact" aria-selected="false">Monthly report
+                                </button>
+                                <button class="nav-link" id="nav-disabled-tab" data-bs-toggle="tab"
+                                        data-bs-target="#nav-disabled" type="button" role="tab"
+                                        aria-controls="nav-disabled" aria-selected="false">Annual Report
+                                </button>
+                            </div>
+                        </nav>
+                        <div class="tab-content" id="nav-tabContent">
+                            <div class="tab-pane fade show active" id="nav-home" role="tabpanel"
+                                 aria-labelledby="nav-home-tab" tabindex="0">
+                                <!--                                Daily report Table-->
+
+                                <table class="table table-hover">
+                                    <thead>
+                                    <tr>
+                                        <th scope="col">Order Id</th>
+                                        <th scope="col">Date</th>
+                                        <th scope="col">NIC</th>
+                                        <th scope="col">Price</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <th scope="row">I-001</th>
+                                        <td>99-12-24</td>
+                                        <td>Otto</td>
+                                        <td>@mdo</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">I-002</th>
+                                        <td>Jacob</td>
+                                        <td>Thornton</td>
+                                        <td>@fat</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">I-003</th>
+                                        <td>Larry the Bird</td>
+                                        <td>sana</td>
+                                        <td>@twitter</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+
+
+                                <!--                                Daily report Table-->
+                            </div>
+                            <div class="tab-pane fade" id="nav-profile" role="tabpanel"
+                                 aria-labelledby="nav-profile-tab" tabindex="0">
+                                <!--                                Weekly report Table-->
+
+                                <table class="table table-hover">
+                                    <thead>
+                                    <tr>
+                                        <th scope="col">Order Id</th>
+                                        <th scope="col">Date</th>
+                                        <th scope="col">NIC</th>
+                                        <th scope="col">Price</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <th scope="row">I-001</th>
+                                        <td>99-12-24</td>
+                                        <td>Otto</td>
+                                        <td>@mdo</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">I-002</th>
+                                        <td>Jacob</td>
+                                        <td>Thornton</td>
+                                        <td>@fat</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">I-003</th>
+                                        <td>Larry the Bird</td>
+                                        <td>sana</td>
+                                        <td>@twitter</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+
+
+                                <!--                                Weekly report Table-->
+                            </div>
+                            <div class="tab-pane fade" id="nav-contact" role="tabpanel"
+                                 aria-labelledby="nav-contact-tab" tabindex="0">
+                                <!--                                monthly report Table-->
+
+                                <table class="table table-hover">
+                                    <thead>
+                                    <tr>
+                                        <th scope="col">Order Id</th>
+                                        <th scope="col">Date</th>
+                                        <th scope="col">NIC</th>
+                                        <th scope="col">Price</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <th scope="row">I-001</th>
+                                        <td>99-12-24</td>
+                                        <td>Otto</td>
+                                        <td>@mdo</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">I-002</th>
+                                        <td>Jacob</td>
+                                        <td>Thornton</td>
+                                        <td>@fat</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">I-003</th>
+                                        <td>Larry the Bird</td>
+                                        <td>sana</td>
+                                        <td>@twitter</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+
+
+                                <!--                                monthly report Table-->
+
+                            </div>
+                            <div class="tab-pane fade" id="nav-disabled" role="tabpanel"
+                                 aria-labelledby="nav-disabled-tab" tabindex="0">
+
+                                <!--                                Annually report Table-->
+
+                                <table class="table table-hover">
+                                    <thead>
+                                    <tr>
+                                        <th scope="col">Order Id</th>
+                                        <th scope="col">Date</th>
+                                        <th scope="col">NIC</th>
+                                        <th scope="col">Price</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <th scope="row">I-001</th>
+                                        <td>99-12-24</td>
+                                        <td>Otto</td>
+                                        <td>@mdo</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">I-002</th>
+                                        <td>Jacob</td>
+                                        <td>Thornton</td>
+                                        <td>@fat</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">I-003</th>
+                                        <td>Larry the Bird</td>
+                                        <td>sana</td>
+                                        <td>@twitter</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+
+
+                                <!--                                Annually report Table-->
+                            </div>
+                        </div>
+
+                        <!--                    nav to reports-->
+
+                    </div>
+
+
+                    <div class="mb-3">
+
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--income Reports-->
 
 <!--Customer verify-->
 
@@ -157,10 +372,10 @@
                         <table class="table table-hover">
                             <thead>
                             <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">First</th>
-                                <th scope="col">Last</th>
-                                <th scope="col">Handle</th>
+                                <th scope="col">Customer NIC</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Address</th>
+                                <th scope="col">tel</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -233,10 +448,9 @@
                     <table class="table">
                         <thead>
                         <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">First</th>
-                            <th scope="col">Last</th>
-                            <th scope="col">Handle</th>
+                            <th scope="col">Driver ID</th>
+                            <th scope="col">Driver name</th>
+                            <th scope="col">Driver Tel</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -244,19 +458,19 @@
                             <th scope="row">1</th>
                             <td>Mark</td>
                             <td>Otto</td>
-                            <td>@mdo</td>
+
                         </tr>
                         <tr>
                             <th scope="row">2</th>
                             <td>Jacob</td>
                             <td>Thornton</td>
-                            <td>@fat</td>
+
                         </tr>
                         <tr>
                             <th scope="row">3</th>
                             <td>Larry the Bird</td>
                             <td>sana</td>
-                            <td>@twitter</td>
+
                         </tr>
                         </tbody>
                     </table>
@@ -289,14 +503,14 @@
                             <li class="list-group-item">Auto transmission</li>
                             <li class="list-group-item">petrol</li>
                         </ul>
-                        <a href="#" class="btn btn-primary">view more</a>
+
                     </div>
                 </div>
 
             </div>
             <div class="col">
 
-                <div class="card" style="width: 18rem;">
+                <div class="card shadow" style="width: 18rem;">
                     <img src="https://i0.wp.com/autodirect.lk/wp-content/uploads/2022/03/DSC_7255-scaled.jpg?resize=798%2C466&ssl=1"
                          class="card-img-top" alt="...">
                     <div class="card-body">
@@ -306,14 +520,14 @@
                             <li class="list-group-item">Auto transmission</li>
                             <li class="list-group-item">petrol</li>
                         </ul>
-                        <a href="#" class="btn btn-primary">view more</a>
+
                     </div>
                 </div>
 
             </div>
             <div class="col">
 
-                <div class="card" style="width: 18rem;">
+                <div class="card shadow" style="width: 18rem;">
                     <img src="https://i0.wp.com/autodirect.lk/wp-content/uploads/2022/03/DSC_7255-scaled.jpg?resize=798%2C466&ssl=1"
                          class="card-img-top" alt="...">
                     <div class="card-body">
@@ -323,14 +537,14 @@
                             <li class="list-group-item">Auto transmission</li>
                             <li class="list-group-item">petrol</li>
                         </ul>
-                        <a href="#" class="btn btn-primary">view more</a>
+
                     </div>
                 </div>
 
             </div>
             <div class="col">
 
-                <div class="card" style="width: 18rem;">
+                <div class="card shadow" style="width: 18rem;">
                     <img src="https://i0.wp.com/autodirect.lk/wp-content/uploads/2022/03/DSC_7255-scaled.jpg?resize=798%2C466&ssl=1"
                          class="card-img-top" alt="...">
                     <div class="card-body">
@@ -340,14 +554,14 @@
                             <li class="list-group-item">Auto transmission</li>
                             <li class="list-group-item">petrol</li>
                         </ul>
-                        <a href="#" class="btn btn-primary">view more</a>
+
                     </div>
                 </div>
 
             </div>
             <div class="col">
 
-                <div class="card" style="width: 18rem;">
+                <div class="card shadow" style="width: 18rem;">
                     <img src="https://i0.wp.com/autodirect.lk/wp-content/uploads/2022/03/DSC_7255-scaled.jpg?resize=798%2C466&ssl=1"
                          class="card-img-top" alt="...">
                     <div class="card-body">
@@ -357,7 +571,7 @@
                             <li class="list-group-item">Auto transmission</li>
                             <li class="list-group-item">petrol</li>
                         </ul>
-                        <a href="#" class="btn btn-primary">view more</a>
+
                     </div>
                 </div>
 
@@ -377,7 +591,7 @@
     <main class="container-fluid mt-5">
 
         <section>
-            <table id="tblrentalDetails" class="table table-hover w-100" data-bs-theme="dark">
+            <table id="tblrentalDetails" class="table table-hover w-100">
                 <thead>
                 <tr>
                     <th scope="col">Rental Id</th>
@@ -422,13 +636,14 @@
     </main>
 </div>
 
-
+<script src="../assets/js/jquery-3.7.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
         integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
         crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
         integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
         crossorigin="anonymous"></script>
+<script src="../controller/AdminDashBoard.js"></script>
 <script>
     const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
     const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))

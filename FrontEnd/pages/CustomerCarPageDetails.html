@@ -33,30 +33,32 @@
 <div class="container-fluid m-0 p-0 overflow-hidden" style="background-color:rgba(0,0,0,0.1)">
     <div class="row">
         <section>
-            <div id="carouselExampleAutoplaying col-12 m-0" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-item active">
-                    <img src="../assets/img/seat-company-wallpaper-preview.jpg" class="d-block w-100" alt="...">
+            <div id="carouselExampleAutoplaying" class="carousel slide col-12 m-0" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="../assets/img/seat-company-wallpaper-preview.jpg" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="../assets/img/a1aeb92de8130bd247a63829f0030bed.jpg" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="../assets/img/seat-company-wallpaper-preview.jpg" class="d-block w-100" alt="...">
+                    </div>
                 </div>
-                <div class="carousel-item">
-                    <img src="../assets/img/a1aeb92de8130bd247a63829f0030bed.jpg" class="d-block w-100" alt="...">
-                </div>
-                <div class="carousel-item">
-                    <img src="../assets/img/seat-company-wallpaper-preview.jpg" class="d-block w-100" alt="...">
-                </div>
+
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
+                        data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
+                        data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
-                    data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
-                    data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
+        </section>
 
-
-    </section>
     </div>
     <section class="mt-4">
         <div class="d-flex justify-content-center">
@@ -69,7 +71,7 @@
                         </div>
                         <div class="mb-3 col-md-4 ">
                             <label for="vehicleType" class="form-label">Vehicle type</label>
-                            <input type="password" id="vehicleType" class="form-control"/>
+                            <input type="password" id="vehicleType" class="form-control" disabled>
 
                         </div>
                     </div>
@@ -80,11 +82,11 @@
                     <div class="row d-flex justify-content-center">
                         <div class="mb-3 col-md-4 ">
                             <label for="exampleFormControlInput1" class="form-label">Number of passengers</label>
-                            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="">
+                            <input type="email" class="form-control" id="exampleFormControlInput1" disabled>
                         </div>
                         <div class="mb-3 col-md-4 ">
                             <label for="inputPassword5" class="form-label">Transmission type</label>
-                            <input type="password" id="inputPassword5" class="form-control"/>
+                            <input type="password" id="inputPassword5" class="form-control"disabled>
 
                         </div>
                     </div>
@@ -94,11 +96,11 @@
                     <div class="row d-flex justify-content-center">
                         <div class="mb-3 col-md-4 ">
                             <label for="dailyRentalPrice" class="form-label">daily rental price</label>
-                            <input type="text" class="form-control" id="dailyRentalPrice" placeholder="">
+                            <input type="text" class="form-control" id="dailyRentalPrice" disabled>
                         </div>
                         <div class="mb-3 col-md-4 ">
                             <label for="monthlyRentalPrice" class="form-label">monthly rental price</label>
-                            <input type="text" id="monthlyRentalPrice" class="form-control"/>
+                            <input type="text" id="monthlyRentalPrice" class="form-control"disabled>
 
                         </div>
                     </div>
@@ -107,11 +109,11 @@
                     <div class="row d-flex justify-content-center">
                         <div class="mb-3 col-md-4 ">
                             <label for="fuelType" class="form-label">Fuel type</label>
-                            <input type="text" class="form-control" id="fuelType" placeholder="">
+                            <input type="text" class="form-control" id="fuelType" disabled>
                         </div>
                         <div class="mb-3 col-md-4 ">
                             <label for="freeMilage" class="form-label">free mileage</label>
-                            <input type="text" id="freeMilage" class="form-control"/>
+                            <input type="text" id="freeMilage" class="form-control" disabled>
 
                         </div>
                     </div>
@@ -120,11 +122,11 @@
                     <div class="row d-flex justify-content-center">
                         <div class="mb-3 col-md-4 ">
                             <label for="exampleFormControlInput1" class="form-label">price for extra KM</label>
-                            <input type="text" class="form-control" id="priceForExtra" placeholder="">
+                            <input type="text" class="form-control" id="priceForExtra" disabled>
                         </div>
                         <div class="mb-3 col-md-4 ">
                             <label for="registerNmb" class="form-label">Reg No</label>
-                            <input type="text" id="registerNmb" class="form-control"/>
+                            <input type="text" id="registerNmb" class="form-control" disabled>
 
                         </div>
                     </div>
@@ -133,7 +135,7 @@
                     <div class="row d-flex justify-content-center">
                         <div class="mb-3 col-md-4 ">
                             <label for="vehicleColor" class="form-label ">color</label>
-                            <input type="text" class="form-control" id="vehicleColor" placeholder="">
+                            <input type="text" class="form-control" id="vehicleColor" disabled>
                         </div>
 
                     </div>
@@ -182,12 +184,12 @@
                                 </div>
                                 <!--                  -->
                                 <div class="mb-3">
-                                    <label for="pickupLocation" class="col-form-label">Lose damage Package</label>
+                                    <label for="loseDamage" class="col-form-label">Lose damage Package</label>
                                     <select class="form-control" id="loseDamage"></select>
                                 </div>
                                 <!--                  -->
                                 <div class="mb-3">
-                                    <label for="pickupDate" class="col-form-label">Bank reciept for lose damage</label>
+                                    <label for="bankReciept" class="col-form-label">Bank reciept for lose damage</label>
                                     <input type="file" class="form-control mb-1" id="bankReciept">
                                 </div>
 
