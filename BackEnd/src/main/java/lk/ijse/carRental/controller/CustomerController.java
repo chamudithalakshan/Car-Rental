@@ -51,10 +51,19 @@ public class CustomerController {
         return new ResponseUtil("Ok","Successfully Deleted",id);
     }
 
-    @GetMapping
-    public ResponseUtil getAllCustomer(){
+//    @GetMapping
+//    public ResponseUtil getAllCustomer(){
+//
+////        return new ResponseUtil("Ok","Successfully Loaded",service.getAllCustomer());
+//
+//        List<CustomerResponseDTO> customers = service.getAllCustomer();
+//        return new ResponseUtil("Ok", "Successfully Loaded", customers);
+//    }
 
-        return new ResponseUtil("Ok","Successfully Loaded",service.getAllCustomer());
+    @GetMapping
+    public ResponseEntity<List<CustomerResponseDTO>> getAllCustomers() {
+        List<CustomerResponseDTO> response = service.getAllCustomer();
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
     @GetMapping(params = {"id"})
@@ -68,7 +77,18 @@ public class CustomerController {
         return new ResponseUtil("Ok","Successfully Updated",c);
     }
 
-
+    // Serve image
+    @GetMapping("/image/{filename:.+}")
+    public ResponseEntity<Resource> serveImage(@PathVariable String filename) {
+        Resource file = service.loadFileAsResource(filename);
+        if (file.exists()) {
+            return ResponseEntity.ok()
+                    .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + file.getFilename() + "\"")
+                    .body(file);
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+        }
+    }
 
 
 

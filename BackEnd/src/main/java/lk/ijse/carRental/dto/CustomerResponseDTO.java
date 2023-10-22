@@ -24,7 +24,7 @@ public class CustomerResponseDTO {
 
     private String nicImage;
 
-    private String   drivingLicenseImage;
+    private String drivingLicenseImage;
 
 
     private String name;

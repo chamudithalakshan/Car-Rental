@@ -66,29 +66,32 @@ $('#btnget').click(function(e) {
     e.preventDefault();
 
     $.ajax({
-        url: "http://localhost:8080/BackEnd_war/customer",
+        url: 'http://localhost:8080/BackEnd_war/customer',
         type: 'GET',
         dataType: 'json',
-        success: function(data) {
-            console.log(data)
-            $('#customergetAll').empty();  // clear the content
+        success: function(customers) {
+            if (customers && Array.isArray(customers) && customers.length > 0) {
+                console.log(customers);
 
-            data.data.forEach(function(customer) {
-                let customerCard = `
-                        <div class="customer-card">
-                            <img src="${customer.nicImage}" alt="NIC Image">
-                            <img src="${customer.drivingLicenseImage}" alt="Driving License Image">
-                            <p>Name: ${customer.name}</p>
-                            <p>Email: ${customer.emailAddress}</p>
-                            <p>Contact: ${customer.contactNumber}</p>
-                            <p>Address: ${customer.address}</p>
-                        </div>`;
+                customers.forEach(customer => {
+                    // Replace backslashes with forward slashes for image paths
+                    let nicImageUrl = customer.nicImage.replace(/\\/g, "/");
+                    let drivingLicenseImageUrl = customer.drivingLicenseImage.replace(/\\/g, "/");
 
-                $('#customergetAll').append(customerCard);
-            });
+                    // Display the images (for example, append them to a specific div)
+                    $('#customergetAll').append('<img src="' + nicImageUrl + '" alt="NIC Image">');
+                    $('#customergetAll').append('<img src="' + drivingLicenseImageUrl + '" alt="Driving License Image">');
+
+                    // ... do other things with the data
+                });
+            } else {
+                console.error('No customers data received.');
+            }
         },
-        error: function(err) {
-            console.log(err);
+        error: function(error) {
+            console.error('Error:', error);
         }
     });
+
+
 });
