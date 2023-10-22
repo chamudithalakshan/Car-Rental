@@ -7,97 +7,128 @@
     <title>Customer car page details</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+
+    <style>
+        .customer-card {
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .customer-card img {
+            max-width: 200px;
+            margin: 10px;
+        }
+
+    </style>
 </head>
 
 <body>
 
 <main>
-    <section style="background-color:rgba(0,0,0,0.1)">
-        <div class="container vh-100 vw-100 d-flex justify-content-center">
-            <div class="row align-content-center">
-                <div class="col-12">
-                    <div class="row d-flex flex-row justify-content-center">
-                        <div class="mb-3 col-md-4 ">
-                            <label for="exampleFormControlInput1" class="form-label">Email address</label>
-                            <input type="email" class="form-control" id="exampleFormControlInput1"
-                                   placeholder="name@example.com">
-                        </div>
-                        <div class="mb-3 col-md-4 ">
-                            <label for="inputPassword5" class="form-label">Password</label>
-                            <input type="password" id="inputPassword5" class="form-control"
-                                   aria-describedby="passwordHelpBlock">
-                            <!--                        <div id="passwordHelpBlock" class="form-text">-->
-                            <!--                            Your password must be 8-20 characters long, contain letters and numbers, and must not-->
-                            <!--                            contain spaces, special characters, or emoji.-->
-                            <!--                        </div>-->
-                        </div>
-                    </div>
-
-                </div>
-                <div class="col-12">
-                    <div class="row d-flex flex-row justify-content-center">
-                        <div class="mb-3 col-8">
-                            <label for="formFile" class="form-label">Upload NIC</label>
-                            <div class="row d-flex ">
-                                <div class="col-6">
-                                    <input class="form-control col-6" type="file" id="formFile">
-                                </div>
-                                <div class="col-6">
-                                    <input type="text" class="form-control col-6" id="exampleFormControlInput2" placeholder="NIC">
-                                </div>
-
+    <form id="customerForm">
+        <section style="background-color:rgba(0,0,0,0.1)">
+            <div class="container vh-100 vw-100 d-flex justify-content-center">
+                <div class="row align-content-center">
+                    <div class="col-12">
+                        <div class="row d-flex flex-row justify-content-center">
+                            <div class="mb-3 col-md-4 ">
+                                <label for="txtEmailAddress" class="form-label">Email address</label>
+                                <input type="email" class="form-control" id="txtEmailAddress"
+                                       placeholder="name@example.com" name="emailAddress">
                             </div>
-                        </div>
-
-                        <div class="mb-3 col-8">
-                            <label for="DliceneUpload" class="form-label">Upload Driving License</label>
-                            <div class="row d-flex ">
-                                <div class="col-6">
-                                    <input class="form-control" type="file" id="DliceneUpload">
-                                </div>
-                                <div class="col-6">
-                                    <input type="text" class="form-control" id="exampleFormControlInput3" placeholder="Name">
-                                </div>
-
+                            <div class="mb-3 col-md-4 ">
+                                <label for="txtPassword" class="form-label">Password</label>
+                                <input type="password" id="txtPassword" class="form-control"
+                                       aria-describedby="passwordHelpBlock" name="password">
+                                <!--                        <div id="passwordHelpBlock" class="form-text">-->
+                                <!--                            Your password must be 8-20 characters long, contain letters and numbers, and must not-->
+                                <!--                            contain spaces, special characters, or emoji.-->
+                                <!--                        </div>-->
                             </div>
                         </div>
 
                     </div>
-<div class="row d-flex flex-row justify-content-center">
-    <div class="mb-3 col-8 align-content-center">
-        <label for="exampleFormControlInput4" class="form-label">Address</label>
-        <textarea type="text" class="form-control" id="exampleFormControlInput4" placeholder="Address"></textarea>
-    </div>
-    <div class="mb-3 col-8">
-        <label for="exampleFormControlInput5" class="form-label">Contact number</label>
-        <input type="text" class="form-control" id="exampleFormControlInput5" placeholder="tel:-">
-    </div>
-</div>
+                    <div class="col-12">
+                        <div class="row d-flex flex-row justify-content-center">
+                            <div class="mb-3 col-8">
+                                <label for="fileNic" class="form-label">Upload NIC</label>
+                                <div class="row d-flex ">
+                                    <div class="col-6">
+                                        <input class="form-control col-6" type="file" id="fileNic" name="nicImage">
+                                    </div>
+                                    <div class="col-6">
+                                        <input type="text" class="form-control col-6" id="txtNic"
+                                               placeholder="NIC" name="nicNumber">
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="mb-3 col-8">
+                                <label for="DliceneUpload" class="form-label">Upload Driving License</label>
+                                <div class="row d-flex ">
+                                    <div class="col-6">
+                                        <input class="form-control" type="file"  id="DliceneUpload" name="drivingLicenseImage">
+                                        <div id="preview"></div>
+                                    </div>
+                                    <div class="col-6">
+                                        <input type="text" class="form-control" id="txtName"
+                                               placeholder="Name" name="name">
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row d-flex flex-row justify-content-center">
+                            <div class="mb-3 col-8 align-content-center">
+                                <label for="txtAddress" class="form-label">Address</label>
+                                <textarea type="text" class="form-control" id="txtAddress"
+                                          placeholder="Address" name="address"></textarea>
+                            </div>
+                            <div class="mb-3 col-8">
+                                <label for="txtContactNmb" class="form-label">Contact number</label>
+                                <input type="text" class="form-control" id="txtContactNmb"
+                                       placeholder="tel:-" name="contactNumber">
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- Placeholder for the second column, you can put other content or images here -->
+                    <div class="col-md-4">
+
+                        <!-- Empty for now. -->
+                    </div>
+
+                    <div class="container text-center">
+                        <input type="hidden" class="form-control" id="activeStatus" value="notVerify"
+                               name="activeStatus">
+                        <input type="hidden" class="form-control" id="role" value="user" name="role">
+                        <button id="btnSignUp" type="submit" class="btn btn-primary btn-lg">Sign up</button>
+                        <button id="btnget" type="submit" class="btn btn-primary btn-lg">Sign get</button>
+                    </div>
 
                 </div>
-                <!-- Placeholder for the second column, you can put other content or images here -->
-                <div class="col-md-4">
-
-                    <!-- Empty for now. -->
-                </div>
-
-                <div class="container text-center">
-                    <input type="hidden" class="form-control" id="activeStatus"  value="notVerify">
-                    <button type="button" class="btn btn-primary btn-lg">Sign up</button>
-                </div>
-
             </div>
-        </div>
-    </section>
+        </section>
+    </form>
+
+    <div id="customergetAll"></div>
 
 
 </main>
-
+<script src="../assets/js/jquery-3.7.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
         integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
         crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
         integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
         crossorigin="anonymous"></script>
+<script src="../controller/CustomerSignIn.js"></script>
 </body>
 </html>
