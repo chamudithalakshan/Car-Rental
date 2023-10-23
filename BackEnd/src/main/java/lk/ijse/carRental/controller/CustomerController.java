@@ -2,6 +2,7 @@ package lk.ijse.carRental.controller;
 
 import lk.ijse.carRental.dto.CustomerDTO;
 import lk.ijse.carRental.dto.CustomerResponseDTO;
+import lk.ijse.carRental.dto.StatusDTO;
 import lk.ijse.carRental.service.CustomerService;
 import lk.ijse.carRental.util.ResponseUtil;
 import org.modelmapper.ModelMapper;
@@ -14,6 +15,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/customer")
@@ -60,6 +62,19 @@ public class CustomerController {
         service.updateCustomer(c);
         return new ResponseUtil("Ok","Successfully Updated",c);
     }
+
+    @PutMapping("/updateStatus")
+    public ResponseEntity<String> updateCustomerStatus(@RequestBody StatusDTO dto) {
+        boolean isUpdated = service.updateCustomerStatus(dto.getNicNumber(), dto.getActiveStatus());
+
+        if (isUpdated) {
+            return ResponseEntity.ok("Status updated successfully.");
+        } else {
+            return ResponseEntity.badRequest().body("Failed to update status.");
+        }
+    }
+
+
 
     // Serve image
     @GetMapping("/image/{filename:.+}")

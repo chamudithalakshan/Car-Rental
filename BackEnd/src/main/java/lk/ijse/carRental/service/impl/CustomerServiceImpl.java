@@ -25,6 +25,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -92,6 +93,25 @@ public class CustomerServiceImpl implements CustomerService {
     public void updateCustomer(CustomerDTO c) {
 
     }
+
+    @Override
+    public boolean updateCustomerStatus(String nic, String status) {
+        Optional<Customer> optionalCustomer = customerRepo.findById(nic);
+
+        if (!optionalCustomer.isPresent()) {
+            return false;
+        }
+
+        Customer customer = optionalCustomer.get();
+        customer.setActiveStatus(status);
+
+        customerRepo.save(customer);
+        return true;
+    }
+
+
+
+
 
     @Override
     public List<Customer> getAllCustomers() {

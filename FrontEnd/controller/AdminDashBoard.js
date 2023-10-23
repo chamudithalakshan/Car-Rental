@@ -59,9 +59,36 @@ function LoadNotVerifyCustomerTOCard() {
         $("#cardImage").attr("src", nicImage);
         $("#cardName").text(name);
         $("#cardNIC").text(nic);
+        $("#btnVerify").data("nic", nic);
     });
 
 }
+
+$("#btnVerify").on("click", function() {
+    let currentNic = $("#cardNIC").text();  // Assuming the NIC value is shown in the card
+    updateCustomerStatus(currentNic, 'Verify');
+});
+
+function updateCustomerStatus(nic, status) {
+    $.ajax({
+        url: 'http://localhost:8080/BackEnd_war/customer/updateStatus',
+        type: 'PUT',
+        dataType: 'json',
+        contentType: 'application/json',
+        data: JSON.stringify({
+            nicNumber: nic,
+            activeStatus: status
+        }),
+        success: function (response) {
+            console.log(response);
+            alert('Status updated successfully!');
+        },
+        error: function (error) {
+            console.error("Error updating status:", error);
+        }
+    });
+}
+
 
 
 $("#customerVerifyTableRefresh").click(function () {

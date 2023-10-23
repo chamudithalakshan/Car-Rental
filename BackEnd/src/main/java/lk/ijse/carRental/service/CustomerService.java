@@ -22,4 +22,6 @@ public interface CustomerService {
     List<Customer> getAllCustomers();
 
     Resource loadFileAsResource(String fileName);
+
+    boolean updateCustomerStatus(String nic, String status);
 }
