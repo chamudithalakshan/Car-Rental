@@ -2,26 +2,18 @@ package lk.ijse.carRental.controller;
 
 import lk.ijse.carRental.dto.CustomerDTO;
 import lk.ijse.carRental.dto.CustomerResponseDTO;
-import lk.ijse.carRental.entity.Customer;
 import lk.ijse.carRental.service.CustomerService;
 import lk.ijse.carRental.util.ResponseUtil;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
-import org.springframework.core.io.UrlResource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-
-import java.io.File;
-import java.net.MalformedURLException;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/customer")
@@ -51,14 +43,6 @@ public class CustomerController {
         return new ResponseUtil("Ok","Successfully Deleted",id);
     }
 
-//    @GetMapping
-//    public ResponseUtil getAllCustomer(){
-//
-////        return new ResponseUtil("Ok","Successfully Loaded",service.getAllCustomer());
-//
-//        List<CustomerResponseDTO> customers = service.getAllCustomer();
-//        return new ResponseUtil("Ok", "Successfully Loaded", customers);
-//    }
 
     @GetMapping
     public ResponseEntity<List<CustomerResponseDTO>> getAllCustomers() {

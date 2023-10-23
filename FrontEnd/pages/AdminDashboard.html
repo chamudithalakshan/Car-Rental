@@ -347,65 +347,100 @@
                 <form>
                     <div class="mb-3">
                         <!--                        card-->
+<!--                        <div class="card" style="width: 18rem;">-->
+<!--                            <img src="" class="card-img-top" alt="...">-->
+<!--                            <div class="card-body">-->
+<!--                                <h5 class="card-title">verify customer</h5>-->
+<!--                            </div>-->
+<!--                            <ul class="list-group list-group-flush">-->
+<!--                                <li class="list-group-item">NIC</li>-->
+<!--                                <li class="list-group-item">Name</li>-->
+
+<!--                            </ul>-->
+
+<!--                            <div class="card-body">-->
+
+<!--                                <button type="button" class="btn btn-primary bg">verify</button>-->
+
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    &lt;!&ndash;                    end card&ndash;&gt;-->
+<!--                    <div class="mb-3">-->
+<!--                        &lt;!&ndash;                                table&ndash;&gt;-->
+
+<!--                        <table id="notVerifyCustomers" class="table table-hover">-->
+<!--                            <thead>-->
+<!--                            <tr>-->
+<!--                                <th scope="col">Customer NIC</th>-->
+<!--                                <th scope="col">Name</th>-->
+<!--                                <th scope="col">Address</th>-->
+<!--                                <th scope="col">tel</th>-->
+<!--                            </tr>-->
+<!--                            </thead>-->
+<!--                            <tbody id="notVerifyCustomersTbody" >-->
+<!--                            <tr>-->
+<!--                                <th scope="row">1</th>-->
+<!--                                <td>Mark</td>-->
+<!--                                <td>Otto</td>-->
+<!--                                <td>@mdo</td>-->
+<!--                            </tr>-->
+<!--                            <tr>-->
+<!--                                <th scope="row">2</th>-->
+<!--                                <td>Jacob</td>-->
+<!--                                <td>Thornton</td>-->
+<!--                                <td>@fat</td>-->
+<!--                            </tr>-->
+<!--                            <tr>-->
+<!--                                <th scope="row">3</th>-->
+<!--                                <td>Larry the Bird</td>-->
+<!--                                <td>sana</td>-->
+<!--                                <td>@twitter</td>-->
+<!--                            </tr>-->
+<!--                            </tbody>-->
+<!--                        </table>-->
+
+                        <!-- The Card Section -->
                         <div class="card" style="width: 18rem;">
-                            <img src="..." class="card-img-top" alt="...">
+                            <img id="cardImage" src="http://localhost:8080/BackEnd_war/customer/image/java.png" alt="Customer NIC Image" class="card-img-top">
                             <div class="card-body">
-                                <h5 class="card-title">verify customer</h5>
+                                <h5 class="card-title" id="cardName">Name will appear here</h5>
                             </div>
                             <ul class="list-group list-group-flush">
-                                <li class="list-group-item">NIC</li>
-                                <li class="list-group-item">Name</li>
-
+                                <li class="list-group-item" id="cardNIC">NIC will appear here</li>
                             </ul>
-
                             <div class="card-body">
-
                                 <button type="button" class="btn btn-primary bg">verify</button>
-
                             </div>
                         </div>
-                    </div>
-                    <!--                    end card-->
-                    <div class="mb-3">
-                        <!--                                table-->
 
-                        <table class="table table-hover">
+
+
+                        <!-- The Table Section -->
+                        <table id="notVerifyCustomers" class="table table-hover">
                             <thead>
                             <tr>
                                 <th scope="col">Customer NIC</th>
                                 <th scope="col">Name</th>
                                 <th scope="col">Address</th>
                                 <th scope="col">tel</th>
+                                <th scope="col">nicImagePath</th>
                             </tr>
                             </thead>
-                            <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Jacob</td>
-                                <td>Thornton</td>
-                                <td>@fat</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>Larry the Bird</td>
-                                <td>sana</td>
-                                <td>@twitter</td>
-                            </tr>
+                            <tbody id="notVerifyCustomersTbody">
+                            <!-- Rows will be appended here dynamically -->
                             </tbody>
                         </table>
+
 
                         <!--                                table-->
                     </div>
                 </form>
             </div>
             <div class="modal-footer">
+                <button id="customerVerifyTableRefresh" type="button" class="btn btn-outline-primary">Refresh</button>
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
             </div>
         </div>
     </div>

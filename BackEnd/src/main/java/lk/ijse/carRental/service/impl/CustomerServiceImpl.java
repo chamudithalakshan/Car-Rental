@@ -119,28 +119,6 @@ public class CustomerServiceImpl implements CustomerService {
     private Environment env;
 
     private String saveImage(MultipartFile image) {
-//        // Validate the uploaded file
-//        if (image.isEmpty()) {
-//            throw new IllegalStateException("The provided image is empty!");
-//        }
-//
-//        // Ensure the upload directory exists and if not, create it.
-//        File directory = new File(uploadDir);
-//        if (!directory.exists()) {
-//            directory.mkdirs();
-//        }
-//
-//        // Create a sanitized filename and build the path
-//        String fileName = StringUtils.cleanPath(image.getOriginalFilename());
-//        Path copyLocation = Paths.get(uploadDir, fileName);
-//
-//        try {
-//            // Save the uploaded file to the designated directory
-//            Files.copy(image.getInputStream(), copyLocation, StandardCopyOption.REPLACE_EXISTING);
-//            return copyLocation.toString();
-//        } catch (IOException e) {
-//            throw new RuntimeException("Could not store file " + fileName + ". Please try again!", e);
-//        }
 
         // Validate the uploaded file
         if (image.isEmpty()) {
