@@ -33,7 +33,7 @@ function loadUnverifiedCustomers() {
                     tr += '<td>' + customer.name + '</td>';
                     tr += '<td>' + customer.address + '</td>';
                     tr += '<td>' + customer.contactNumber + '</td>';
-                    tr += '<td>' + nicImageUrl + '</td>';
+                    tr += '<td style="display: none;">' + nicImageUrl + '</td>';
                     tr += '</tr>';
 
                     // Append the table row to the table body
