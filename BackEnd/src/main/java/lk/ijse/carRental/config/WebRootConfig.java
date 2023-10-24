@@ -23,10 +23,10 @@ public class WebRootConfig {
       return new ModelMapper();
    }
 
-   @Bean
+   @Bean(name = "multipartResolver")
    public CommonsMultipartResolver multipartResolver() {
       CommonsMultipartResolver resolver = new CommonsMultipartResolver();
-      resolver.setMaxUploadSize(10000000); // setting the max upload size, adjust accordingly
+      resolver.setMaxUploadSize(50 * 1024 * 1024);
       return resolver;
    }
 
