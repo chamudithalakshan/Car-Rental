@@ -17,7 +17,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-
 @Service
 public class CarServiceImpl implements CarService {
 
@@ -76,17 +75,83 @@ public class CarServiceImpl implements CarService {
             return false;
         }
     }
-
+    @Transactional
     @Override
-    public boolean updateCar(String regNo, CarDTO carDTO) {
-        if (carRepository.existsById(regNo)) {
-            Car car = modelMapper.map(carDTO, Car.class);
-            carRepository.save(car);
-            return true;
-        } else {
-            return false;
+
+    public void updateCarDetails(CarDTO carDTO) {
+        if (!carRepository.existsById(carDTO.getRegNo())) {
+            throw new RuntimeException(carDTO.getRegNo()+ " Customer is not available, please check the ID before update.!");
         }
+        Car map = modelMapper.map(carDTO, Car.class);
+        carRepository.save(map);
     }
+
+
+
+
+
+
+//    public boolean updateCar(String regNo, CarDTO carDTO) {
+////        System.out.println("Car dto :"+carDTO);
+//
+//        Optional<Car> carOptional = carRepository.findById(regNo);
+//
+//
+//
+//        if (carOptional.isPresent()) {
+//            Car existingCar = carOptional.get();
+//
+//            if (carDTO.getVehicleBrand() != null && !carDTO.getVehicleBrand().isEmpty()) {
+//                existingCar.setVehicleBrand(carDTO.getVehicleBrand());
+//            }
+//            if (carDTO.getVehicleType() != null && !carDTO.getVehicleType().isEmpty()) {
+//                existingCar.setVehicleType(carDTO.getVehicleType());
+//            }
+//            if (carDTO.getNumberOfPassengers() != null) {
+//                existingCar.setNumberOfPassengers(carDTO.getNumberOfPassengers());
+//            }
+//            if (carDTO.getTransmissionType() != null && !carDTO.getTransmissionType().isEmpty()) {
+//                existingCar.setTransmissionType(carDTO.getTransmissionType());
+//            }
+//            if (carDTO.getDailyRentalPrice() != null) {
+//                existingCar.setDailyRentalPrice(carDTO.getDailyRentalPrice());
+//            }
+//            if (carDTO.getMonthlyRentalPrice() != null) {
+//                existingCar.setMonthlyRentalPrice(carDTO.getMonthlyRentalPrice());
+//            }
+//            if (carDTO.getFuelType() != null && !carDTO.getFuelType().isEmpty()) {
+//                existingCar.setFuelType(carDTO.getFuelType());
+//            }
+//            if (carDTO.getFreeMileage() != null) {
+//                existingCar.setFreeMileage(carDTO.getFreeMileage());
+//            }
+//            if (carDTO.getPriceForExtraKM() != null) {
+//                existingCar.setPriceForExtraKM(carDTO.getPriceForExtraKM());
+//            }
+//            if (carDTO.getVehicleColor() != null && !carDTO.getVehicleColor().isEmpty()) {
+//                existingCar.setVehicleColor(carDTO.getVehicleColor());
+//            }
+//            if (carDTO.getReservedStatus() != null && !carDTO.getReservedStatus().isEmpty()) {
+//                existingCar.setReservedStatus(carDTO.getReservedStatus());
+//            }
+//            if (carDTO.getMaintains() != null && !carDTO.getMaintains().isEmpty()) {
+//                existingCar.setMaintains(carDTO.getMaintains());
+//            }
+//            if (carDTO.getImagePaths() != null && !carDTO.getImagePaths().isEmpty()) {
+//                existingCar.setImagePaths(carDTO.getImagePaths());
+//            }
+//            // ... Add any other fields present in your DTO and Car entity ...
+//
+//            carRepository.save(existingCar);
+//            return true;
+//        } else {
+//            return false;
+//        }
+//    }
+
+
+
+
 
 
 

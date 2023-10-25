@@ -45,21 +45,24 @@ function deleteCarByRegNo(regNo) {
     });
 }
 
-$("#btnUpdate").click(function(event) {  // Assuming you give your "Update" button the id `btnUpdate`.
+$("#btnUpdate").click(function(event) {
     event.preventDefault();  // To prevent form submission since we'll use AJAX
 
     var carDetails = {
+        regNo: $("#txtregisterNmb").val(),
         vehicleBrand: $("#vehicleBrand").val(),
         vehicleType: $("#vehicleType").val(),
-        numberOfPassenger: $("#txtNmbOfPassenger").val(),
+        numberOfPassengers: parseInt($("#txtNmbOfPassenger").val(), 10), // Convert string input to integer
         transmissionType: $("#txtTransmissionType").val(),
-        dailyRentalPrice: $("#dailyRentalPrice").val(),
-        monthlyRentalPrice: $("#txtmonthlyRentalPrice").val(),
+        dailyRentalPrice: parseFloat($("#dailyRentalPrice").val()), // Convert string input to float
+        monthlyRentalPrice: parseFloat($("#txtmonthlyRentalPrice").val()), // Convert string input to float
         fuelType: $("#txtfuelType").val(),
-        freeMilage: $("#txtfreeMilage").val(),
-        priceForExtraKM: $("#txtpriceForExtra").val(),
-        Vehiclecolor: $("#vehicleColor").val(),
-        // ... gather all other input values similarly
+        freeMileage: parseFloat($("#txtfreeMilage").val()), // Convert string input to float
+        priceForExtraKM: parseFloat($("#txtpriceForExtra").val()), // Convert string input to float
+        VehicleColor: $("#vehicleColor").val(),
+        reservedStatus: $("#txtReserveStatus").val(),
+        maintains: $("#txtAddMaintance").val()
+        // If you want to handle file uploads, you'll need to add more logic for "imagePaths"
     };
 
     var regNo = $("#txtregisterNmb").val();
@@ -67,9 +70,10 @@ $("#btnUpdate").click(function(event) {  // Assuming you give your "Update" butt
     updateCarDetails(regNo, carDetails);
 });
 
+
 function updateCarDetails(regNo, carDetails) {
     $.ajax({
-        url: 'http://localhost:8080/BackEnd_war/Car/' + regNo,
+        url: 'http://localhost:8080/BackEnd_war/Car/update',
         type: 'PUT',
         contentType: 'application/json',
         data: JSON.stringify(carDetails),

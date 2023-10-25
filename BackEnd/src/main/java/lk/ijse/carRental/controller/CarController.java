@@ -1,12 +1,9 @@
 package lk.ijse.carRental.controller;
 
 import lk.ijse.carRental.dto.CarDTO;
-import lk.ijse.carRental.dto.CustomerDTO;
-import lk.ijse.carRental.dto.CustomerResponseDTO;
 import lk.ijse.carRental.service.CarService;
 import lk.ijse.carRental.util.ResponseUtil;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -49,6 +46,7 @@ public class CarController {
 //    @PutMapping("/{regNo}")
 //    public ResponseEntity<String> updateCar(@PathVariable String regNo, @RequestBody CarDTO carDTO) {
 //        try {
+//            System.out.println("Car dto in controller"+carDTO);
 //            boolean isUpdated = carService.updateCar(regNo, carDTO);
 //            if (isUpdated) {
 //                return new ResponseEntity<>("Car with regNo: " + regNo + " has been successfully updated.", HttpStatus.OK);
@@ -59,5 +57,16 @@ public class CarController {
 //            return new ResponseEntity<>("Error updating car details. Exception: " + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
 //        }
 //    }
+
+    @PutMapping("/update")
+    public ResponseUtil updateCar(@RequestBody CarDTO carDTO) {
+        System.out.println("Car dto in controller" + carDTO);
+        carService.updateCarDetails(carDTO);  // Example method in your service
+        return new ResponseUtil("Ok","Successfully Updated",carDTO);
+
+
+
+    }
+
 
 }

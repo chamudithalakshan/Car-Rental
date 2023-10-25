@@ -28,12 +28,10 @@ public class CarDTO {
     private Double freeMileage;
     private Double priceForExtraKM;
     private String VehicleColor;
-    private String reservedStatus; // I'm assuming this to be a boolean. Adjust if required.
-    private String maintains;      // Assuming this to be a boolean. Adjust if required.
-    private List<String> imagePaths = new ArrayList<>(); // Paths to the stored images
+    private String reservedStatus;
+    private String maintains;
+    private List<String> imagePaths = new ArrayList<>();
 
-    // Add other fields and related annotations if required.
 
-    // Note: Lombok's @Data annotation will generate getters, setters, equals, hashCode, and toString methods.
 
 }
