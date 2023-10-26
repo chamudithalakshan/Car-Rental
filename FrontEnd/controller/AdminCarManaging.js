@@ -1,3 +1,10 @@
+$(document).ready(function() {
+    // Your code here will run once the DOM is loaded
+
+});
+
+
+
 $("#btnAddCar").click(function(event) {
     var formData = new FormData($("#CarForm")[0]);
 
@@ -85,3 +92,4 @@ function updateCarDetails(regNo, carDetails) {
         }
     });
 }
+

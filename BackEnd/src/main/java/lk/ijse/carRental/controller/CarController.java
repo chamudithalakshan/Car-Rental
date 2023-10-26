@@ -1,14 +1,22 @@
 package lk.ijse.carRental.controller;
 
 import lk.ijse.carRental.dto.CarDTO;
+import lk.ijse.carRental.dto.CarResponseDTO;
+import lk.ijse.carRental.entity.Car;
 import lk.ijse.carRental.service.CarService;
 import lk.ijse.carRental.util.ResponseUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.io.FileSystemResource;
+import org.springframework.core.io.Resource;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 
 @RestController
@@ -16,6 +24,9 @@ import java.util.List;
 @CrossOrigin
 
 public class CarController {
+
+    @Value("${upload.dir}")
+    private String uploadDir;
 
     @Autowired
     private CarService carService;
@@ -68,5 +79,26 @@ public class CarController {
 
     }
 
+    @GetMapping
+    public ResponseEntity<List<CarResponseDTO>> getAllCars() {
+        List<CarResponseDTO> carDTOs = carService.getAllCars();
+        if (carDTOs != null && !carDTOs.isEmpty()) {
+            return new ResponseEntity<>(carDTOs, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+    @GetMapping("/image/{filename:.+}")
+    public ResponseEntity<Resource> serveImage(@PathVariable String filename) {
+        Path path = Paths.get(uploadDir, filename);
+        Resource file = new FileSystemResource(path);
+        if (file.exists()) {
+            return ResponseEntity.ok()
+                    .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + file.getFilename() + "\"")
+                    .body(file);
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+        }
+    }
 
 }

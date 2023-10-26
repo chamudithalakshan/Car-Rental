@@ -1,5 +1,6 @@
 package lk.ijse.carRental.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -30,7 +31,7 @@ public class Car {
     private String reservedStatus; // I'm assuming this to be a boolean. Adjust if required.
     private String maintains;      // Assuming this to be a boolean. Adjust if required.
 
-    @ElementCollection
+    @ElementCollection(fetch = FetchType.EAGER)
     private List<String> imagePaths = new ArrayList<>();
 
     public void addImagePath(String path) {

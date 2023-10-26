@@ -1,20 +1,28 @@
 package lk.ijse.carRental.service.impl;
 
 import lk.ijse.carRental.dto.CarDTO;
+import lk.ijse.carRental.dto.CarResponseDTO;
 import lk.ijse.carRental.entity.Car;
 import lk.ijse.carRental.repo.CarRepository;
 import lk.ijse.carRental.service.CarService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.UrlResource;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.util.StringUtils;
+
 import java.io.File;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 
 @Service
@@ -37,7 +45,7 @@ public class CarServiceImpl implements CarService {
         // Logic to save the car details in the database
         Car car = convertDtoToEntity(carDTO);
 
-        for(MultipartFile photo : photosOfCar) {
+        for (MultipartFile photo : photosOfCar) {
             String originalFileName = StringUtils.cleanPath(photo.getOriginalFilename());
             String fileName = System.currentTimeMillis() + "_" + originalFileName; // Added a timestamp to make filename unique
             File dest = new File(uploadDir + File.separator + fileName);
@@ -75,23 +83,20 @@ public class CarServiceImpl implements CarService {
             return false;
         }
     }
+
     @Transactional
     @Override
 
     public void updateCarDetails(CarDTO carDTO) {
         if (!carRepository.existsById(carDTO.getRegNo())) {
-            throw new RuntimeException(carDTO.getRegNo()+ " Customer is not available, please check the ID before update.!");
+            throw new RuntimeException(carDTO.getRegNo() + " Customer is not available, please check the ID before update.!");
         }
         Car map = modelMapper.map(carDTO, Car.class);
         carRepository.save(map);
     }
 
 
-
-
-
-
-//    public boolean updateCar(String regNo, CarDTO carDTO) {
+    //    public boolean updateCar(String regNo, CarDTO carDTO) {
 ////        System.out.println("Car dto :"+carDTO);
 //
 //        Optional<Car> carOptional = carRepository.findById(regNo);
@@ -148,11 +153,43 @@ public class CarServiceImpl implements CarService {
 //            return false;
 //        }
 //    }
+    @Transactional
+    @Override
+    public List<CarResponseDTO> getAllCars() {
+        List<Car> cars = carRepository.findAll();
+        return cars.stream().map(car -> new CarResponseDTO(
+                car.getRegNo(),
+                car.getVehicleBrand(),
+                car.getVehicleType(),
+                car.getNumberOfPassengers(),
+                car.getTransmissionType(),
+                car.getDailyRentalPrice(),
+                car.getMonthlyRentalPrice(),
+                car.getFuelType(),
+                car.getFreeMileage(),
+                car.getPriceForExtraKM(),
+                car.getVehicleColor(),
+                car.getReservedStatus(),
+                car.getMaintains(),
+                car.getImagePaths()
+        )).collect(Collectors.toList());
+    }
 
 
-
-
-
+    @Override
+    public Resource loadFileAsResource(String filename) {
+        try {
+            Path filePath = Paths.get(uploadDir).resolve(filename).normalize();
+            Resource resource = new UrlResource(filePath.toUri());
+            if (resource.exists()) {
+                return resource;
+            } else {
+                throw new RuntimeException("File not found: " + filename);
+            }
+        } catch (MalformedURLException ex) {
+            throw new RuntimeException("File not found: " + filename, ex);
+        }
+    }
 
 
     private Car convertDtoToEntity(CarDTO dto) {

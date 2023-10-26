@@ -1,8 +1,8 @@
 $(document).ready(function () {
     // Fetch the customers data
-
-    LoadNotVerifyCustomerTOCard()
-    loadUnverifiedCustomers()
+    getAllCarCards();
+     LoadNotVerifyCustomerTOCard()
+     loadUnverifiedCustomers()
     // $("#notVerifyCustomersTbody").on('click', 'tr', function() {
     //     alert("Row clicked!");
     // });
@@ -87,6 +87,44 @@ function updateCustomerStatus(nic, status) {
             console.error("Error updating status:", error);
         }
     });
+}
+
+function getAllCarCards() {
+    $.ajax({
+        url: 'http://localhost:8080/BackEnd_war/Car',
+        type: 'GET',
+        success: function(cars) {
+            // Assuming cars is an array of Car objects
+            cars.forEach(car => {
+                const filename = getFilenameFromPath(car.imagePaths[0]);
+                const imagePath = `http://localhost:8080/BackEnd_war/Car/image/${filename}`;
+                const carHtml = `
+                    <div class="col">
+                        <div class="card shadow" style="width: 18rem;">
+                            <img src="${imagePath}" class="card-img-top" height="166px">
+                            <div class="card-body">
+                                <h5 class="card-title">${car.vehicleBrand}</h5>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">${car.vehicleType}</li>
+                                    <li class="list-group-item">${car.transmissionType}</li>
+                                    <li class="list-group-item">${car.fuelType}</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                $('#carCard').append(carHtml);
+            });
+        },
+        error: function(error) {
+            console.error('Failed to fetch cars', error);
+        }
+    });
+}
+
+
+function getFilenameFromPath(path) {
+    return path.split('\\').pop().split('/').pop();
 }
 
 

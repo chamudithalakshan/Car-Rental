@@ -1,7 +1,8 @@
 package lk.ijse.carRental.service;
 
 import lk.ijse.carRental.dto.CarDTO;
-import org.springframework.transaction.annotation.Transactional;
+import lk.ijse.carRental.dto.CarResponseDTO;
+import org.springframework.core.io.Resource;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
@@ -11,8 +12,10 @@ public interface CarService {
 
     boolean deleteCar(String regNo);
 
-    @Transactional
     void updateCarDetails(CarDTO carDTO);
+
+     List<CarResponseDTO> getAllCars();
+    Resource loadFileAsResource(String filename);
 
 //    boolean updateCar(String regNo, CarDTO carDTO);
 }
