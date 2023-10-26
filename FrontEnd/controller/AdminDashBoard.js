@@ -132,3 +132,44 @@ function getFilenameFromPath(path) {
 $("#customerVerifyTableRefresh").click(function () {
     loadUnverifiedCustomers()
 });
+
+$("#btnAddDriver").on('click',function () {
+    let formData = $("#DriverForm").serialize();
+
+    $.ajax({
+        url:'http://localhost:8080/BackEnd_war/Driver',
+        method: "post",
+        headers:{
+            Auth:"user=admin,pass=admin"
+        },
+        data: formData,
+        success: function (res) {
+            alert("successFully Added !");
+
+        },
+        error: function (error) {
+            alert(error.responseJSON.message);
+        }
+    });
+
+
+})
+$("#btnDeleteDriver").on('click',function () {
+    let driverId = $("#driverID").val();
+
+    $.ajax({
+        url: 'http://localhost:8080/BackEnd_war/Driver?DriverId=' + driverId,
+        method: 'delete',
+        headers:{
+            Auth:"user=admin,pass=admin"
+        },
+        success: function (resp) {
+            alert(resp.message);
+            return true;
+        },
+        error: function (error) {
+            alert(error.responseJSON.message);
+            return false;
+        }
+    });
+});

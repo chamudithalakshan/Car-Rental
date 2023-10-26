@@ -347,62 +347,63 @@
                 <form>
                     <div class="mb-3">
                         <!--                        card-->
-<!--                        <div class="card" style="width: 18rem;">-->
-<!--                            <img src="" class="card-img-top" alt="...">-->
-<!--                            <div class="card-body">-->
-<!--                                <h5 class="card-title">verify customer</h5>-->
-<!--                            </div>-->
-<!--                            <ul class="list-group list-group-flush">-->
-<!--                                <li class="list-group-item">NIC</li>-->
-<!--                                <li class="list-group-item">Name</li>-->
+                        <!--                        <div class="card" style="width: 18rem;">-->
+                        <!--                            <img src="" class="card-img-top" alt="...">-->
+                        <!--                            <div class="card-body">-->
+                        <!--                                <h5 class="card-title">verify customer</h5>-->
+                        <!--                            </div>-->
+                        <!--                            <ul class="list-group list-group-flush">-->
+                        <!--                                <li class="list-group-item">NIC</li>-->
+                        <!--                                <li class="list-group-item">Name</li>-->
 
-<!--                            </ul>-->
+                        <!--                            </ul>-->
 
-<!--                            <div class="card-body">-->
+                        <!--                            <div class="card-body">-->
 
-<!--                                <button type="button" class="btn btn-primary bg">verify</button>-->
+                        <!--                                <button type="button" class="btn btn-primary bg">verify</button>-->
 
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    &lt;!&ndash;                    end card&ndash;&gt;-->
-<!--                    <div class="mb-3">-->
-<!--                        &lt;!&ndash;                                table&ndash;&gt;-->
+                        <!--                            </div>-->
+                        <!--                        </div>-->
+                        <!--                    </div>-->
+                        <!--                    &lt;!&ndash;                    end card&ndash;&gt;-->
+                        <!--                    <div class="mb-3">-->
+                        <!--                        &lt;!&ndash;                                table&ndash;&gt;-->
 
-<!--                        <table id="notVerifyCustomers" class="table table-hover">-->
-<!--                            <thead>-->
-<!--                            <tr>-->
-<!--                                <th scope="col">Customer NIC</th>-->
-<!--                                <th scope="col">Name</th>-->
-<!--                                <th scope="col">Address</th>-->
-<!--                                <th scope="col">tel</th>-->
-<!--                            </tr>-->
-<!--                            </thead>-->
-<!--                            <tbody id="notVerifyCustomersTbody" >-->
-<!--                            <tr>-->
-<!--                                <th scope="row">1</th>-->
-<!--                                <td>Mark</td>-->
-<!--                                <td>Otto</td>-->
-<!--                                <td>@mdo</td>-->
-<!--                            </tr>-->
-<!--                            <tr>-->
-<!--                                <th scope="row">2</th>-->
-<!--                                <td>Jacob</td>-->
-<!--                                <td>Thornton</td>-->
-<!--                                <td>@fat</td>-->
-<!--                            </tr>-->
-<!--                            <tr>-->
-<!--                                <th scope="row">3</th>-->
-<!--                                <td>Larry the Bird</td>-->
-<!--                                <td>sana</td>-->
-<!--                                <td>@twitter</td>-->
-<!--                            </tr>-->
-<!--                            </tbody>-->
-<!--                        </table>-->
+                        <!--                        <table id="notVerifyCustomers" class="table table-hover">-->
+                        <!--                            <thead>-->
+                        <!--                            <tr>-->
+                        <!--                                <th scope="col">Customer NIC</th>-->
+                        <!--                                <th scope="col">Name</th>-->
+                        <!--                                <th scope="col">Address</th>-->
+                        <!--                                <th scope="col">tel</th>-->
+                        <!--                            </tr>-->
+                        <!--                            </thead>-->
+                        <!--                            <tbody id="notVerifyCustomersTbody" >-->
+                        <!--                            <tr>-->
+                        <!--                                <th scope="row">1</th>-->
+                        <!--                                <td>Mark</td>-->
+                        <!--                                <td>Otto</td>-->
+                        <!--                                <td>@mdo</td>-->
+                        <!--                            </tr>-->
+                        <!--                            <tr>-->
+                        <!--                                <th scope="row">2</th>-->
+                        <!--                                <td>Jacob</td>-->
+                        <!--                                <td>Thornton</td>-->
+                        <!--                                <td>@fat</td>-->
+                        <!--                            </tr>-->
+                        <!--                            <tr>-->
+                        <!--                                <th scope="row">3</th>-->
+                        <!--                                <td>Larry the Bird</td>-->
+                        <!--                                <td>sana</td>-->
+                        <!--                                <td>@twitter</td>-->
+                        <!--                            </tr>-->
+                        <!--                            </tbody>-->
+                        <!--                        </table>-->
 
                         <!-- The Card Section -->
                         <div id="cusCard" class="card" style="width: 18rem;">
-                            <img id="cardImage" src="http://localhost:8080/BackEnd_war/customer/image/java.png" alt="Customer NIC Image" class="card-img-top">
+                            <img id="cardImage" src="http://localhost:8080/BackEnd_war/customer/image/java.png"
+                                 alt="Customer NIC Image" class="card-img-top">
                             <div class="card-body">
                                 <h5 class="card-title" id="cardName">Name will appear here</h5>
                             </div>
@@ -415,7 +416,6 @@
                         </div>
 
 
-
                         <!-- The Table Section -->
                         <table id="notVerifyCustomers" class="table table-hover">
                             <thead>
@@ -424,7 +424,7 @@
                                 <th scope="col">Name</th>
                                 <th scope="col">Address</th>
                                 <th scope="col">tel</th>
-                                <th scope="col" style="display: none";>nicImagePath</th>
+                                <th scope="col" style="display: none" ;>nicImagePath</th>
                             </tr>
                             </thead>
                             <tbody id="notVerifyCustomersTbody">
@@ -459,23 +459,32 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form>
+                <form id="DriverForm">
                     <div class="mb-3">
-                        <label for="recipient-name" class="col-form-label">Driver Id</label>
-                        <input type="text" class="form-control" id="recipient-name">
+                        <label for="driverID" class="col-form-label">Driver Id</label>
+                        <input name="driverId" type="text" class="form-control" id="driverID">
                     </div>
                     <div class="mb-3">
                         <label for="driverName" class="col-form-label">Driver name</label>
-                        <input class="form-control" id="driverName">
+                        <input name="driverName" class="form-control" id="driverName">
                     </div>
                     <div class="mb-3">
                         <label for="driverTel" class="col-form-label">Driver tel</label>
-                        <input class="form-control" id="driverTel">
+                        <input name="driverTel" class="form-control" id="driverTel">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="driverReserveStatus" class="col-form-label">Driver tel</label>
+                        <select name="driverReserveStatus" id="driverReserveStatus" class="form-select">
+                            <option value="Not Reserved">Not Reserved</option>
+                            <option value="Reserved">Reserved</option>
+                        </select>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Add</button>
-                        <button type="button" class="btn btn-primary">Delete</button>
+                        <button id="btnAddDriver" type="submit" class="btn btn-primary">Add</button>
+                        <button id="btnDeleteDriver" type="button" class="btn btn-primary">Delete</button>
+                        <button id="btnUpdateDriver" type="button" class="btn btn-primary">Update</button>
                     </div>
                 </form>
 
@@ -486,6 +495,7 @@
                             <th scope="col">Driver ID</th>
                             <th scope="col">Driver name</th>
                             <th scope="col">Driver Tel</th>
+                            <th scope="col">Driver Status</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -493,17 +503,20 @@
                             <th scope="row">1</th>
                             <td>Mark</td>
                             <td>Otto</td>
+                            <td>Otto</td>
 
                         </tr>
                         <tr>
                             <th scope="row">2</th>
                             <td>Jacob</td>
                             <td>Thornton</td>
+                            <td>Thornton</td>
 
                         </tr>
                         <tr>
                             <th scope="row">3</th>
                             <td>Larry the Bird</td>
+                            <td>sana</td>
                             <td>sana</td>
 
                         </tr>
@@ -525,7 +538,7 @@
 <!-- cars -->
 
 <section id="selectCar" class="mb-3">
-    <div  class="container-fluid text-center mt-3 col-12  mt-4">
+    <div class="container-fluid text-center mt-3 col-12  mt-4">
         <div id="carCard" class="row row-cols-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5">
             <div id="carCrd" class="col ">
                 <div class="card shadow" style="width: 18rem;">
