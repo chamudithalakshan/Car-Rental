@@ -3,9 +3,13 @@ $(document).ready(function () {
     getAllCarCards();
      LoadNotVerifyCustomerTOCard()
      loadUnverifiedCustomers()
+    loadDrivers();
     // $("#notVerifyCustomersTbody").on('click', 'tr', function() {
     //     alert("Row clicked!");
     // });
+
+
+
 
 });
 
@@ -172,4 +176,142 @@ $("#btnDeleteDriver").on('click',function () {
             return false;
         }
     });
+});
+
+function searchDriver(DriverId) {
+
+    let resp = false;
+    $.ajax({
+        url:'http://localhost:8080/BackEnd_war/Driver',
+        dataType: "json",
+        headers:{
+            Auth:"user=admin,pass=admin"
+        },
+        async: false,
+        success: function (response) {
+            let customers = response.data;
+            resp = customers.find(function (driver) {
+                //if the search id match with customer record
+                //then return that object
+                return driver.driverId == DriverId;
+            });
+
+        },
+        error: function (error) {
+            resp=false;
+            alert(error.responseJSON.message);
+        }
+    });
+    return resp;
+
+
+}
+
+function updateDriver(id) {
+    if (searchDriver(id) == undefined) {
+        alert("No such Customer..please check the ID");
+    } else {
+        let consent = confirm("Do you really want to update this customer.?");
+        if (consent) {
+            let driver = searchDriver(id)[0];
+            //if the customer available can we update.?
+            console.log(driver);
+            let DriverName = $("#driverName").val();
+            let DriverTel = $("#driverTel").val();
+            let DriverReservationStatus = $("#driverReserveStatus").val();
+            driver.driverId = id;
+            driver.driverName = DriverName;
+            driver.driverTel = DriverTel;
+            driver.driverReserveStatus = DriverReservationStatus;
+
+            $.ajax({
+                url:'http://localhost:8080/BackEnd_war/Driver/update',
+                method: 'put',
+                headers:{
+                    Auth:"user=admin,pass=admin"
+                },
+                contentType: "application/json",
+                data: JSON.stringify(driver),
+                success: function (resp) {
+                    alert(resp.message);
+
+                },
+                error: function (error) {
+                    alert(error.responseJSON.message);
+                }
+            });
+        }
+    }
+
+}
+$("#btnUpdateDriver").click(function (event) {
+    event.preventDefault(); // Prevent default form submission
+
+    // Serialize the form data
+    let formData = $("#DriverForm").serializeArray();
+    let dataObject = {};
+    $(formData).each(function(index, obj){
+        dataObject[obj.name] = obj.value;
+    });
+
+    // Send an AJAX request to update the driver
+    $.ajax({
+        url: 'http://localhost:8080/BackEnd_war/Driver/update',
+        method: 'PUT',
+        contentType: "application/json",
+        data: JSON.stringify(dataObject),
+        success: function (response) {
+            alert(response.message);
+            // You might also want to close the modal and refresh your list of drivers here.
+            $('#exampleModal').modal('hide'); // Close modal
+            // ... refresh driver list if needed
+        },
+        error: function (error) {
+            alert(error.responseJSON.message);
+        }
+    });
+});
+
+
+function loadDrivers() {
+    $.ajax({
+        url: 'http://localhost:8080/BackEnd_war/Driver',
+        method: 'GET',
+        success: function(drivers) {
+            // Assuming 'drivers' is an array of driver objects
+            let tableBody = $('#tblDriverTbody');
+            tableBody.empty();  // Clear existing rows
+
+            drivers.forEach(driver => {
+                const driverRow = `
+                    <tr>
+                        <th scope="row">${driver.driverId}</th>
+                        <td>${driver.driverName}</td>
+                        <td>${driver.driverTel}</td>
+                        <td>${driver.driverReserveStatus}</td>
+                    </tr>
+                `;
+                tableBody.append(driverRow);
+            });
+        },
+        error: function(error) {
+            alert('Failed to fetch drivers', error);
+        }
+    });
+}
+
+
+$('#tblDriverTbody').on('click', 'tr', function() {
+    // Fetching values from the clicked row
+    const driverId = $(this).find('th').text().trim();
+    const driverName = $(this).find('td:nth-child(2)').text().trim();
+    const driverTel = $(this).find('td:nth-child(3)').text().trim();
+    const driverReserveStatus = $(this).find('td:nth-child(4)').text().trim();
+
+    // Setting the values to the respective input fields
+    $('#driverID').val(driverId);
+    $('#driverName').val(driverName);
+    $('#driverTel').val(driverTel);
+    $('#driverReserveStatus').val(driverReserveStatus);
+
 });

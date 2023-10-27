@@ -2,11 +2,14 @@ package lk.ijse.carRental.controller;
 
 
 import lk.ijse.carRental.dto.DriverDTO;
+import lk.ijse.carRental.entity.Driver;
 import lk.ijse.carRental.service.DriverService;
 import lk.ijse.carRental.util.ResponseUtil;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/Driver")
@@ -32,11 +35,14 @@ public class DriverController {
         return new ResponseUtil("Ok","Successfully Deleted",DriverId);
     }
 
-    @PutMapping
-    public ResponseUtil updateCustomer(@RequestBody DriverDTO dto){
+    @PutMapping("/update")
+    public ResponseUtil updateDriver(@RequestBody DriverDTO dto){
         driverService.updateDriver(dto);
         return new ResponseUtil("Ok","Successfully Updated",dto);
     }
 
-
+    @GetMapping
+    public List<Driver> getAllDrivers() {
+        return driverService.getAllDrivers();
+    }
 }

@@ -474,7 +474,7 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="driverReserveStatus" class="col-form-label">Driver tel</label>
+                        <label for="driverReserveStatus" class="col-form-label">Driver Status</label>
                         <select name="driverReserveStatus" id="driverReserveStatus" class="form-select">
                             <option value="Not Reserved">Not Reserved</option>
                             <option value="Reserved">Reserved</option>
@@ -489,7 +489,7 @@
                 </form>
 
                 <div>
-                    <table class="table">
+                    <table id="tblDriver" class="table">
                         <thead>
                         <tr>
                             <th scope="col">Driver ID</th>
@@ -498,7 +498,7 @@
                             <th scope="col">Driver Status</th>
                         </tr>
                         </thead>
-                        <tbody>
+                        <tbody id="tblDriverTbody">
                         <tr>
                             <th scope="row">1</th>
                             <td>Mark</td>

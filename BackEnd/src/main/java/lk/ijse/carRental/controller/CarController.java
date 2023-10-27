@@ -25,11 +25,13 @@ import java.util.List;
 
 public class CarController {
 
-    @Value("${upload.dir}")
-    private String uploadDir;
+
 
     @Autowired
     private CarService carService;
+
+    @Value("${upload.dir}")
+    private String uploadDir;
 
     @PostMapping
     public ResponseEntity<?> saveCar(@ModelAttribute CarDTO carDTO,
