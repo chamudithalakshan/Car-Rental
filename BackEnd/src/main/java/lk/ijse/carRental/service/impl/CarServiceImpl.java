@@ -192,6 +192,39 @@ public class CarServiceImpl implements CarService {
     }
 
 
+    @Override
+    public List<CarDTO> getAllCar() {
+        List<Car> cars = carRepository.findAll();
+        return cars.stream().map(this::convertToDTO).collect(Collectors.toList());
+    }
+
+    private CarDTO convertToDTO(Car car) {
+        CarDTO carDTO = new CarDTO();
+
+        carDTO.setRegNo(car.getRegNo());
+        carDTO.setVehicleBrand(car.getVehicleBrand()    );
+        carDTO.setVehicleType(car.getVehicleType());
+        carDTO.setNumberOfPassengers(car.getNumberOfPassengers());
+        carDTO.setTransmissionType(car.getTransmissionType());
+        carDTO.setFuelType(car.getFuelType());
+        carDTO.setDailyRentalPrice(car.getDailyRentalPrice());
+        carDTO.setMonthlyRentalPrice(car.getMonthlyRentalPrice());
+        carDTO.setPriceForExtraKM(car.getPriceForExtraKM());
+        carDTO.setReservedStatus(car.getReservedStatus());
+
+        return carDTO;
+    }
+
+
+@Override
+    public CarDTO getCarByRegNo(String regNo) {
+        Car car = carRepository.findByRegNo(regNo);
+        if (car != null) {
+            return modelMapper.map(car, CarDTO.class);
+        }
+        return null;
+    }
+
     private Car convertDtoToEntity(CarDTO dto) {
         return modelMapper.map(dto, Car.class);
     }

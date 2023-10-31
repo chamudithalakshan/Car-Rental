@@ -74,7 +74,7 @@ public class CustomerServiceImpl implements CustomerService {
 
                     // Assuming your DTOs contain the full image URL and your entities only have the path:
                     responseDTO.setNicImage("http://localhost:8080/BackEnd_war/customer/image/" + customer.getNicImage());
-                    System.out.println("Customer NIC path=  "+customer.getNicImage());
+                    System.out.println("Customer NIC path=  " + customer.getNicImage());
                     responseDTO.setDrivingLicenseImage("http://localhost:8080/BackEnd_war/customer/image/" + customer.getDrivingLicenseImage());
 
                     return responseDTO;
@@ -83,15 +83,26 @@ public class CustomerServiceImpl implements CustomerService {
 
     }
 
-
     @Override
     public CustomerDTO findCustomer(String id) {
-        return null;
+        System.out.println(id);
+        Customer customerByNicNumber = customerRepo.findCustomerByNicNumber("2007");
+        System.out.println(customerByNicNumber);
+        return mapper.map(customerByNicNumber, CustomerDTO.class);
+    }
+
+
+    @Override
+    public CustomerDTO findCustomer(String email, String password) {
+        Customer customerByEmailAddressAndPassword = customerRepo.findCustomerByEmailAddressAndPassword(email, password);
+        System.out.println(customerByEmailAddressAndPassword);
+        System.out.println(email);
+        return mapper.map(customerByEmailAddressAndPassword, CustomerDTO.class);
     }
 
     @Override
     public void updateCustomer(CustomerDTO c) {
-
+//        customerRepo.save(mapper.map(c, Customer.class));
     }
 
     @Override
@@ -110,9 +121,6 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
 
-
-
-
     @Override
     public List<Customer> getAllCustomers() {
         return null;
@@ -124,7 +132,7 @@ public class CustomerServiceImpl implements CustomerService {
             Path filePath = Paths.get(uploadDir).resolve(fileName).normalize();
             Resource resource = new UrlResource(filePath.toUri());
 
-            if(resource.exists()) {
+            if (resource.exists()) {
                 return resource;
             } else {
                 throw new FileStorageException("File not found: " + fileName);  // You can define a custom exception or use a built-in one

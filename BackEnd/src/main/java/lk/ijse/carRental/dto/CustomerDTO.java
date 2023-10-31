@@ -1,10 +1,13 @@
 package lk.ijse.carRental.dto;
 
+import lk.ijse.carRental.entity.Orders;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 import org.springframework.web.multipart.MultipartFile;
+
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -40,4 +43,6 @@ public class CustomerDTO {
 
 
     private String role;
+
+    private List<Orders> orders;
 }

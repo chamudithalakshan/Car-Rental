@@ -17,6 +17,8 @@ public interface CustomerService {
 
     CustomerDTO findCustomer(String id);
 
+    CustomerDTO findCustomer(String email, String password);
+
     void updateCustomer(CustomerDTO c);
 
     List<Customer> getAllCustomers();
@@ -24,4 +26,6 @@ public interface CustomerService {
     Resource loadFileAsResource(String fileName);
 
     boolean updateCustomerStatus(String nic, String status);
+
+
 }

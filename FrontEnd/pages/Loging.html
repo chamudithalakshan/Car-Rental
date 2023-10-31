@@ -9,6 +9,7 @@
           integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
 
+
 </head>
 
 <body class="overflow-hidden ">
@@ -43,22 +44,32 @@
         </div>
 
         <!-- Login form overlay -->
-        <div class="position-absolute top-50 start-50 translate-middle w-25 p-5 bg-white bg-opacity-50">
+        <div class="position-absolute top-50 start-50 translate-middle w-25 p-5 bg-white bg-opacity-50 ">
             <h3 class="mb-4">Login</h3>
-            <form>
+            <form id="loginForm">
+                <select id="userT" name="userType" class="form-select form-select-sm bg-transparent mb-3" aria-label="Small select example" >
+                    <option selected>Select the Role</option>
+                    <option value="Admin">Admin</option>
+                    <option value="Customer">Customer</option>
+                    <option value="Driver">Driver</option>
+                </select>
+
                 <div class="form-floating mb-3">
-                    <input type="email" class="form-control bg-transparent text-dark border" id="floatingInput" placeholder="name@example.com">
+                    <input name="email" type="email" class="form-control bg-transparent text-dark border" id="floatingInput" placeholder="name@example.com">
                     <label for="floatingInput" class="text-dark">Email address</label>
                 </div>
                 <div class="form-floating mb-3">
-                    <input type="password" class="form-control bg-transparent text-dark border" id="floatingPassword" placeholder="Password">
+                    <input name="password" type="password" class="form-control bg-transparent text-dark border" id="floatingPassword" placeholder="Password">
                     <label for="floatingPassword" class="text-dark">Password</label>
                 </div>
-                <button type="submit" class="btn btn-primary w-100">Login</button>
+                <button id="btnLogin" type="submit" class="btn btn-primary w-100">Login</button>
             </form>
         </div>
     </div>
 </div>
+
+<script src="../assets/js/jquery-3.7.0.min.js"></script>
+<script src="../controller/LoginController.js"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
         integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>

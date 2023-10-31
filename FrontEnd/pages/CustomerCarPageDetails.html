@@ -67,11 +67,11 @@
                     <div class="row d-flex justify-content-center">
                         <div class="mb-3 col-md-4 ">
                             <label for="vehicleBrand" class="form-label">Vehicle brand</label>
-                            <input type="email" class="form-control" id="vehicleBrand" disabled>
+                            <input type="text" class="form-control" id="vehicleBrand" disabled>
                         </div>
                         <div class="mb-3 col-md-4 ">
                             <label for="vehicleType" class="form-label">Vehicle type</label>
-                            <input type="password" id="vehicleType" class="form-control" disabled>
+                            <input type="text" id="vehicleType" class="form-control" disabled>
 
                         </div>
                     </div>
@@ -81,12 +81,12 @@
                 <div class="col-12">
                     <div class="row d-flex justify-content-center">
                         <div class="mb-3 col-md-4 ">
-                            <label for="exampleFormControlInput1" class="form-label">Number of passengers</label>
-                            <input type="email" class="form-control" id="exampleFormControlInput1" disabled>
+                            <label for="nmbOfPsngr" class="form-label">Number of passengers</label>
+                            <input type="text" class="form-control" id="nmbOfPsngr" disabled>
                         </div>
                         <div class="mb-3 col-md-4 ">
-                            <label for="inputPassword5" class="form-label">Transmission type</label>
-                            <input type="password" id="inputPassword5" class="form-control"disabled>
+                            <label for="transmission" class="form-label">Transmission type</label>
+                            <input type="text" id="transmission" class="form-control"disabled>
 
                         </div>
                     </div>
@@ -121,7 +121,7 @@
                 <div class="col-12">
                     <div class="row d-flex justify-content-center">
                         <div class="mb-3 col-md-4 ">
-                            <label for="exampleFormControlInput1" class="form-label">price for extra KM</label>
+                            <label for="priceForExtra" class="form-label">price for extra KM</label>
                             <input type="text" class="form-control" id="priceForExtra" disabled>
                         </div>
                         <div class="mb-3 col-md-4 ">
@@ -157,7 +157,7 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="exampleModalLabel">Reserve the car`</h1>
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Reserve the car</h1>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
@@ -172,32 +172,50 @@
                                 </div>
                                 <div class="mb-3">
                                     <label for="pickupLocation" class="col-form-label">Pickup location</label>
-                                    <select class="form-control" id="pickupLocation"></select>
+                                    <select class="form-control " id="pickupLocation">
+                                        <option >Location</option>
+                                        <option value="Galle">Matara</option>
+                                        <option value="Colombo">Galle</option>
+                                        <option value="Colombo">Colombo</option>
+                                    </select>
                                 </div>
                                 <div class="mb-3">
                                     <label for="returnLocation" class="col-form-label">Return location</label>
-                                    <select class="form-control" id="returnLocation"></select>
+                                    <select class="form-control" id="returnLocation">
+                                        <option >Location</option>
+                                        <option value="Galle">Matara</option>
+                                        <option value="Colombo">Galle</option>
+                                        <option value="Colombo">Colombo</option>
+                                    </select>
                                 </div>
                                 <div class="mb-3">
                                     <label for="driverStatus" class="col-form-label">Driver status</label>
-                                    <select class="form-control" id="driverStatus"></select>
+                                    <select class="form-control" id="driverStatus">
+                                        <option value="With Driver">With Driver</option>
+                                        <option value="Without Driver">Without Driver</option>
+                                    </select>
                                 </div>
                                 <!--                  -->
                                 <div class="mb-3">
                                     <label for="loseDamage" class="col-form-label">Lose damage Package</label>
-                                    <select class="form-control" id="loseDamage"></select>
+                                    <select class="form-control" id="loseDamage">
+                                        <option value="10000">Genaral Car</option>
+                                        <option value="15000">Premium Car</option>
+                                        <option value="20000">Luxury car</option>
+                                    </select>
                                 </div>
                                 <!--                  -->
                                 <div class="mb-3">
                                     <label for="bankReciept" class="col-form-label">Bank reciept for lose damage</label>
                                     <input type="file" class="form-control mb-1" id="bankReciept">
+                                    <input type="text" class="form-control mb-1" value="Not verify" id="OrderStatus" hidden>
                                 </div>
 
 
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close
                                     </button>
-                                    <button type="button" class="btn btn-secondary" data-bs-toggle="popover"
+                                    <button id="btnReserveOrder" type="submit" class="btn btn-secondary" data-bs-toggle="popover"
                                             data-bs-placement="right"
                                             data-bs-html="true" data-bs-custom-class="custom-popover"
                                             data-bs-title="Success"
@@ -223,6 +241,10 @@
 </div>
 </div>
 
+
+
+<script src="../assets/js/jquery-3.7.0.min.js"></script>
+<script src="../controller/CustomerCarPage.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
         integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
         crossorigin="anonymous"></script>

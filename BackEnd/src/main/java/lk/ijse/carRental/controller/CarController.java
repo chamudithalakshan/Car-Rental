@@ -103,4 +103,24 @@ public class CarController {
         }
     }
 
+
+    @GetMapping("/allCars")
+    public ResponseEntity<List<CarDTO>> getAllCar() {
+        List<CarDTO> cars = carService.getAllCar();
+        return new ResponseEntity<>(cars, HttpStatus.OK);
+    }
+
+
+    @GetMapping("/{regNo}")
+    public ResponseEntity<CarDTO> getCarByRegNo(@PathVariable String regNo) {
+        System.out.println(regNo);
+        CarDTO car = carService.getCarByRegNo(regNo);
+        if (car != null) {
+            return new ResponseEntity<>(car, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
+
 }

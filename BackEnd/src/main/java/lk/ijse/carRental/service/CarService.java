@@ -15,7 +15,11 @@ public interface CarService {
     void updateCarDetails(CarDTO carDTO);
 
      List<CarResponseDTO> getAllCars();
+
+    public List<CarDTO> getAllCar();
     Resource loadFileAsResource(String filename);
+
+    CarDTO getCarByRegNo(String regNo);
 
 //    boolean updateCar(String regNo, CarDTO carDTO);
 }

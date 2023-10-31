@@ -7,6 +7,7 @@ import lombok.ToString;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.*;
+import java.util.List;
 
 
 @Entity
@@ -45,4 +46,5 @@ public class Customer {
 
 
     private String role;
+
 }

@@ -1,6 +1,7 @@
 $(document).ready(function() {
     // Your code here will run once the DOM is loaded
 
+   populateCarTable();
 });
 
 
@@ -93,3 +94,60 @@ function updateCarDetails(regNo, carDetails) {
     });
 }
 
+function populateCarTable() {
+    $.ajax({
+        url: 'http://localhost:8080/BackEnd_war/Car/allCars',
+        type: 'GET',
+        success: function(cars) {
+            // Clear the existing rows
+            $("#tblrentalDetailsBody").empty();
+
+            cars.forEach(car => {
+                const row = `
+                    <tr>
+                        <th scope="row">${car.regNo}</th>
+                        <td>${car.vehicleBrand}</td>
+                        <td>${car.vehicleType}</td>
+                        <td>${car.numberOfPassengers}</td>
+                        <td>${car.transmissionType}</td>
+                        <td>${car.fuelType}</td>
+                        <td>${car.dailyRentalPrice}</td>
+                        <td>${car.monthlyRentalPrice}</td>
+                        <td>${car.priceForExtraKM}</td>
+                        <td>${car.reservedStatus}</td>
+                    </tr>
+                `;
+                $("#tblrentalDetailsBody").append(row);
+            });
+        },
+        error: function(error) {
+            console.error('Error fetching cars:', error);
+        }
+    });
+}
+
+$('#tblrentalDetailsBody').on('click', 'tr', function() {
+    // Get the values from the clicked row's cells
+    const regNo = $(this).find('th').text();
+    const vehicleBrand = $(this).find('td:nth-child(2)').text();
+    const vehicleType = $(this).find('td:nth-child(3)').text();
+    const numberOfPassengers = $(this).find('td:nth-child(4)').text();
+    const transmissionType = $(this).find('td:nth-child(5)').text();
+    const fuelType = $(this).find('td:nth-child(6)').text();
+    const dailyRentalPrice = $(this).find('td:nth-child(7)').text();
+    const monthlyRentalPrice = $(this).find('td:nth-child(8)').text();
+    const priceForExtraKM = $(this).find('td:nth-child(9)').text();
+    const reservedStatus = $(this).find('td:nth-child(10)').text();
+
+    // Set the values to the respective input fields
+    $('#txtregisterNmb').val(regNo);
+    $('#vehicleBrand').val(vehicleBrand); // Ensure you have an input with id 'vehicleBrand'
+    $('#vehicleType').val(vehicleType);
+    $('#txtNmbOfPassenger').val(numberOfPassengers);
+    $('#txtTransmissionType').val(transmissionType);
+    $('#txtfuelType').val(fuelType);
+    $('#dailyRentalPrice').val(dailyRentalPrice);
+    $('#txtmonthlyRentalPrice').val(monthlyRentalPrice);
+    $('#txtpriceForExtra').val(priceForExtraKM);
+    $('#txtReserveStatus').val(reservedStatus);
+});
