@@ -25,4 +25,7 @@ public class Orders {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "orderDetailsId")
     private OrderDetails orderDetails;
+
+
+
 }

@@ -65,6 +65,6 @@ function getFilenameFromPath(path) {
 $(document).on('click', '#viewMore', function() {
     let regNo = $(this).data('reg'); // Get car registration number from button's data attribute
     let Nic = $("#UserNIC").text();
-    window.location.href = `../pages/CustomerCarPageDetails.html?regNo=${regNo}?Nic=${Nic}`; // Navigate to carReservation page with regNo as a parameter
+    window.location.href = `../pages/CustomerCarPageDetails.html?regNo=${regNo}&Nic=${Nic}`; // Navigate to carReservation page with regNo as a parameter
 });
 

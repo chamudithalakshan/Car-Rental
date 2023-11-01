@@ -26,8 +26,10 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 @Service
 @Transactional
@@ -54,33 +56,21 @@ public class OrderServiceImpl implements OrderService {
         String bankReceiptImagePath = saveImage(dto.getBankReciept());
 
 //        List<Orders> list = new ArrayList<>();
+        Random random = new Random();
+        int randomNumber = random.nextInt(1000);
+        String randomString = Integer.toString(randomNumber);
         Orders order = new Orders();
-        order.setOid("O001");
+        int Oid = random.nextInt(1000);
+        String OidS = Integer.toString(Oid);
+        order.setOid("O-"+OidS);
+        order.setDate(LocalDate.now());
         CustomerDTO customer = service.findCustomer(dto.getCustomerID());
 //        order.setCusID(dto.getCustomerID());
         order.setCusID(mapper.map(customer, Customer.class));
-        OrderDetails orderDetails = new OrderDetails( "ODO001",orderDetailsDTO.getPickupDate(), orderDetailsDTO.getReturnDate(), orderDetailsDTO.getPickupLocation(), orderDetailsDTO.getReturnLocation(), orderDetailsDTO.getDriverStatus(), orderDetailsDTO.getLoseDamage(), bankReceiptImagePath, orderDetailsDTO.getOrderStatus(), orderDetailsDTO.getCarRegNo());
+        OrderDetails orderDetails = new OrderDetails("OD-"+randomString, orderDetailsDTO.getPickupDate(), orderDetailsDTO.getReturnDate(), orderDetailsDTO.getPickupLocation(), orderDetailsDTO.getReturnLocation(), orderDetailsDTO.getDriverStatus(), orderDetailsDTO.getLoseDamage(), bankReceiptImagePath, orderDetailsDTO.getOrderStatus(), orderDetailsDTO.getCarRegNo());
         order.setOrderDetails(orderDetails);
 
         Orders save = repo.save(order);
-//        order.setCustomerID(mapper.map(service.findCustomer(dto.getCustomerID()), Customer.class));
-//
-//        order.setOrderDetails(orderDetails);
-//        System.out.println(order);
-//
-//        OrderDetails map = new OrderDetails();
-//
-//        map.setBankReciept(bankReceiptImagePath);
-//
-//        Orders orders = new Orders();
-//        CustomerDTO customerDto = service.findCustomer(dto.getNic());
-//        Customer cus = mapper.map(customerDto, Customer.class);
-//
-//        orders.setCustomerID(cus);
-//        List<OrderDetails> details=new ArrayList<>();
-//        details.add(map);
-//
-//        orders.setOrderDetails(details);
 
 
     }

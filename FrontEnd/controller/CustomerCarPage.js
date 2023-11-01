@@ -1,8 +1,15 @@
 $(document).ready(function () {
 
-    // Assuming you have a way to get the regNo, for this example, let's say it's from the URL.
-    const regNo = window.location.search.split('=')[1];  // assuming your URL is like ...?regNo=XYZ123
-    const nic = window.location.search.split('=')[2];  // assuming your URL is like ...?regNo=XYZ123
+    // // Assuming you have a way to get the regNo, for this example, let's say it's from the URL.
+    // const regNo = window.location.search.split('=')[1];  // assuming your URL is like ...?regNo=XYZ123
+    // const nic = window.location.search.split('=')[2];  // assuming your URL is like ...?regNo=XYZ123
+
+    const params = new URLSearchParams(window.location.search);
+    const regNo = params.get('regNo');
+     const nic = params.get('Nic');
+
+     console.log(regNo)
+
     let Car;
     $.ajax({
         url: `http://localhost:8080/BackEnd_war/Car/${regNo}`,  // Modify this URL if needed.
@@ -89,10 +96,17 @@ $(document).ready(function () {
             if (!validateForm()) {
                 return; // Exit the function if the form is not valid
             }
+            var currentDate = new Date();
+            var year = currentDate.getFullYear();
+            var month = currentDate.getMonth() + 1; // Months are zero-based (0 - 11)
+            var day = currentDate.getDate();
+
+            var formattedDate = year + '-' + (month < 10 ? '0' : '') + month + '-' + (day < 10 ? '0' : '') + day;
+
 
             const formData = new FormData();
-            formData.append('customerID', "203999")
-            formData.append('date', "2020.03")
+            formData.append('customerID', nic)
+            formData.append('date', formattedDate)
             formData.append('bankReciept', $('#bankReciept')[0].files[0]);
 
             const orderDetails = {

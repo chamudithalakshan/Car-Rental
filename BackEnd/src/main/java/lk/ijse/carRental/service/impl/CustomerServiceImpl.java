@@ -86,7 +86,7 @@ public class CustomerServiceImpl implements CustomerService {
     @Override
     public CustomerDTO findCustomer(String id) {
         System.out.println(id);
-        Customer customerByNicNumber = customerRepo.findCustomerByNicNumber("2007");
+        Customer customerByNicNumber = customerRepo.findCustomerByNicNumber(id);
         System.out.println(customerByNicNumber);
         return mapper.map(customerByNicNumber, CustomerDTO.class);
     }
