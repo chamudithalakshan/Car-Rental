@@ -27,5 +27,7 @@ public interface CustomerService {
 
     boolean updateCustomerStatus(String nic, String status);
 
+    Customer getCustomerById(String customerId);
+
 
 }

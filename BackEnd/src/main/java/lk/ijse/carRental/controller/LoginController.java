@@ -21,27 +21,28 @@ public class LoginController {
     @Autowired
     CustomerService customerService;
 
+    @Autowired
     AdminService adminService;
 
     @PostMapping
     public ResponseEntity<?> loginUser(LoginDTO dto) {
 
-        if (dto.getUserType().equals("Customer")){
-            CustomerDTO customer = customerService.findCustomer(dto.getEmail(), dto.getPassword());
+        switch (dto.getUserType()) {
+            case "Customer":
+                CustomerDTO customer = customerService.findCustomer(dto.getEmail(), dto.getPassword());
 //            System.out.println(customer);
-            return ResponseEntity.ok(customer);
+                return ResponseEntity.ok(customer);
 
-        }else if (dto.getUserType().equals("Admin")){
-            System.out.println(dto.getEmail()+" "+dto.getPassword());
-            AdminDTO admin = adminService.findAdmin(dto.getEmail(), dto.getPassword());
-            return ResponseEntity.ok(admin);
-
-
+            case "Admin":
+                System.out.println(dto.getEmail() + " " + dto.getPassword());
+                AdminDTO admin = adminService.findAdmin(dto.getEmail(), dto.getPassword());
+                return ResponseEntity.ok(admin);
 
 
-        }else if (dto.getUserType().equals("Driver")){
+            case "Driver":
 
-            System.out.println("im  Driver");
+                System.out.println("im  Driver");
+                break;
         }
 
         return new ResponseEntity<>("Successfully Added", HttpStatus.OK);

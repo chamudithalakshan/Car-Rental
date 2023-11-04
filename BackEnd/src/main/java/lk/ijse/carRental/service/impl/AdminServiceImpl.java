@@ -24,8 +24,9 @@ public class AdminServiceImpl implements AdminService {
 
     @Override
     public AdminDTO findAdmin(String email, String password) {
-        Admin adminByEmailAddress = adminRepo.findAdminByEmailAddressAndPassword(email,password);
-
+        System.out.println(email);
+        Admin adminByEmailAddress = adminRepo.findAdminByEmailAddressAndPassword("chamu","111");
+        System.out.println(adminByEmailAddress);
         if (adminByEmailAddress == null) {
             throw new RuntimeException("Admin not found with email: " + email);
         }

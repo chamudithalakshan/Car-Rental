@@ -178,5 +178,10 @@ public class CustomerServiceImpl implements CustomerService {
 
     }
 
+    public Customer getCustomerById(String customerId) {
+        // Implement the logic to fetch a customer by ID from the repository
+        return customerRepo.findById(customerId).orElse(null);
+    }
+
 
 }

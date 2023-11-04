@@ -2,6 +2,10 @@ $(document).ready(function() {
     // Your code here will run once the DOM is loaded
 
    populateCarTable();
+
+
+
+
 });
 
 

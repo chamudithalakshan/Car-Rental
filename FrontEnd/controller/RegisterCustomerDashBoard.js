@@ -4,6 +4,31 @@ $(document).ready(function() {
     $("#UserNIC").text(userID)
     console.log(userID);
     getAllCarCards();
+
+
+    $.ajax({
+        url: 'http://localhost:8080/BackEnd_war/Reservation/by-customer/' + userID, // Adjust the URL to your API endpoint
+        method: 'GET',
+        dataType: 'json',
+        success: function(data) {
+            console.log(data)
+            data.forEach(function(order) {
+                var row = $("<tr>");
+                row.append("<th scope='row'>" + order.oid + "</th>");
+                row.append("<td>" + order.date + "</td>");
+                row.append("<td>" + order.cusId + "</td>");
+                $("#rTbody").append(row);
+            });
+        },
+        error: function() {
+            console.log('Error fetching data.');
+        }
+    });
+
+
+
+
+
 });
 
 

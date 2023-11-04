@@ -7,7 +7,41 @@ $(document).ready(function () {
     // $("#notVerifyCustomersTbody").on('click', 'tr', function() {
     //     alert("Row clicked!");
     // });
+    $.ajax({
+        url: 'http://localhost:8080/BackEnd_war/Reservation/all', // Adjust the URL to your API endpoint
+        method: 'GET',
+        // dataType: 'json',
+        success: function(data) {
+            data.forEach(function(order) {
+                console.log(order)
+                var row = $("<tr>");
+                row.append("<td>" + order.oid + "</td>");
+                row.append("<td>" + order.date + "</td>");
+                row.append("<td>" + order.cusID.name + "</td>");
+                row.append("<td>" + order.orderDetails.driverStatus + "</td>");
+                row.append("<td>" + order.orderDetails.loseDamage + "</td>");
+                row.append("<td>" + order.orderDetails.carId + "</td>");
+                row.append("<td>" + order.orderDetails.orderStatus + "</td>");
 
+// Create an input element for the "Request Status" column
+                var requestStatusInput = $('<input>')
+                    .addClass('form-check-input form-check form-switch')
+                    .attr('type', 'checkbox')
+                    .attr('role', 'switch')
+                    .attr('id', 'switchAcceptRental3');
+
+// Create a table cell and append the input element
+                var requestStatusCell = $("<td>").append(requestStatusInput);
+
+                row.append(requestStatusCell);
+                $("#tBodyRental").append(row);
+
+            });
+        },
+        error: function() {
+            console.log('Error fetching data.');
+        }
+    });
 
 
 

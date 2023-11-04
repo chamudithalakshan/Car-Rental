@@ -4,7 +4,6 @@ package lk.ijse.carRental.service.impl;
 import lk.ijse.carRental.dto.CustomerDTO;
 import lk.ijse.carRental.dto.OrderDetailsDTO;
 import lk.ijse.carRental.dto.OrdersDTO;
-import lk.ijse.carRental.entity.Car;
 import lk.ijse.carRental.entity.Customer;
 import lk.ijse.carRental.entity.OrderDetails;
 import lk.ijse.carRental.entity.Orders;
@@ -27,7 +26,6 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -62,17 +60,30 @@ public class OrderServiceImpl implements OrderService {
         Orders order = new Orders();
         int Oid = random.nextInt(1000);
         String OidS = Integer.toString(Oid);
-        order.setOid("O-"+OidS);
+        order.setOid("O-" + OidS);
         order.setDate(LocalDate.now());
         CustomerDTO customer = service.findCustomer(dto.getCustomerID());
 //        order.setCusID(dto.getCustomerID());
         order.setCusID(mapper.map(customer, Customer.class));
-        OrderDetails orderDetails = new OrderDetails("OD-"+randomString, orderDetailsDTO.getPickupDate(), orderDetailsDTO.getReturnDate(), orderDetailsDTO.getPickupLocation(), orderDetailsDTO.getReturnLocation(), orderDetailsDTO.getDriverStatus(), orderDetailsDTO.getLoseDamage(), bankReceiptImagePath, orderDetailsDTO.getOrderStatus(), orderDetailsDTO.getCarRegNo());
+        OrderDetails orderDetails = new OrderDetails("OD-" + randomString, orderDetailsDTO.getPickupDate(), orderDetailsDTO.getReturnDate(), orderDetailsDTO.getPickupLocation(), orderDetailsDTO.getReturnLocation(), orderDetailsDTO.getDriverStatus(), orderDetailsDTO.getLoseDamage(), bankReceiptImagePath, orderDetailsDTO.getOrderStatus(), orderDetailsDTO.getCarRegNo());
         order.setOrderDetails(orderDetails);
 
         Orders save = repo.save(order);
 
 
+    }
+
+    @Override
+    public List<Orders> getAllOrders() {
+
+        List<Orders> all = repo.findAll();
+        System.out.println(all);
+        return all;
+    }
+
+    @Override
+    public List<Orders> getOrdersByCustomerId(String cusId) {
+        return null;
     }
 
 
@@ -106,6 +117,16 @@ public class OrderServiceImpl implements OrderService {
         return fileName;
 
 
+    }
+
+    @Override
+//    public List<Orders> getOrdersByCustomerId(String customerId) {
+//        // Ensure that you pass the customer ID as a string parameter
+//        return repo.findByCusID(customerId);
+//    }
+    public List<Orders> getOrdersByCustomerId(Customer customer) {
+        Customer customerById = service.getCustomerById(customer.getNicNumber());
+        return repo.findByCusID(customerById);
     }
 
 }

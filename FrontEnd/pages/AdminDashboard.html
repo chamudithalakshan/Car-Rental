@@ -550,7 +550,7 @@
         <div id="carCard" class="row row-cols-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5">
             <div id="carCrd" class="col ">
                 <div class="card shadow" style="width: 18rem;">
-                    <img id="vehicleImg" src=""
+                    <img id="vehicleImg" src="../assets/img/DashboardIMG/2019_BMW_M850i_xDrive_Automatic_4.4_Front.jpg"
                          class="card-img-top" height="166px">
                     <div class="card-body">
                         <h5 id="vehicleBrand" class="card-title">BMW M8</h5>
@@ -653,17 +653,21 @@
                     <th scope="col">Rental Id</th>
                     <th scope="col">Rental Date</th>
                     <th scope="col">customer name</th>
-                    <th scope="col">Assign Driver</th>
+                    <th scope="col"> Driver or not</th>
                     <th scope="col">Payment</th>
+                    <th scope="col">Car reg NO</th>
                     <th scope="col">Request Status</th>
+                    <th scope="col"></th>
                 </tr>
                 </thead>
-                <tbody>
+                <tbody id="tBodyRental">
                 <tr>
                     <th scope="row">1</th>
                     <td>Mark</td>
                     <td>Otto</td>
                     <td>Otto</td>
+                    <td>10000</td>
+                    <td>10000</td>
                     <td>10000</td>
                     <td><input class="form-check-input form-check form-switch" type="checkbox" role="switch"
                                id="switchAcceptRental1"></td>
@@ -674,6 +678,8 @@
                     <td>Thornton</td>
                     <td>Thornton</td>
                     <td>20000</td>
+                    <td>20000</td>
+                    <td>20000</td>
                     <td><input class="form-check-input form-check form-switch" type="checkbox" role="switch"
                                id="switchAcceptRental2"></td>
                 </tr>
@@ -682,6 +688,8 @@
                     <td>Larry the Bird</td>
                     <td>Larry the Bird</td>
                     <td>Larry the Bird</td>
+                    <td>30000</td>
+                    <td>30000</td>
                     <td>30000</td>
                     <td><input class="form-check-input form-check form-switch" type="checkbox" role="switch"
                                id="switchAcceptRental3"></td>
